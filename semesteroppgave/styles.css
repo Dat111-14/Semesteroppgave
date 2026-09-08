@@ -1,0 +1,56 @@
+header {
+	background-color:grey;
+	padding: 5px;
+	position: absolute;
+	top:0;
+	width: 100%;
+ 	margin: 0px;
+	left: 0px;
+	
+}
+
+body {
+	background-image: url("img/Bryggen.jpg");
+	background-repeat: no-repeat;
+	background-position: 50% 0%;
+	margin: auto;
+	width: 10%;
+}
+ul {
+  list-style-type: none;
+  display: flex;
+
+}
+li {
+  padding: 5px;
+}
+h1 {
+	
+	font-size: 40px;
+	margin-bottom: 0px;
+	position: absolute;
+	top: 90px;
+}
+p1 { font-size: 11px;
+	margin-top: -20px;
+	position: absolute;
+	top: 230px;
+}
+
+p2 {
+	font-size: 20px;
+	position: absolute;
+	top: 350px;
+}
+
+img {
+	position: absolute;
+	
+}
+
+.map{
+	width: 400px;
+	height: 400px;
+	top: 350px;
+	left: 244px;
+}
