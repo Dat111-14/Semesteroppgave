@@ -27,10 +27,9 @@ h1 {
   max-width: 800px;
 }
 
-/* Changed to target <a> tags and removed text-decoration */
 a.navn-brikke {
-  display: block; /* Ensures the whole tile is clickable */
-  text-decoration: none; /* Removes the default blue underline */
+  display: block; 
+  text-decoration: none; 
   background-color: #ffffff;
   color: #333;
   padding: 16px 20px;
@@ -46,12 +45,9 @@ a.navn-brikke:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
   background-color: #fcfdfc;
-} /* Added missing closing bracket here */
+}
 
-@media (max-width: 600px) {
-  .navn-container {
-    grid-template-columns: 1fr;
-  }
+
 }
 </style>
 </head>
@@ -60,11 +56,10 @@ a.navn-brikke:hover {
 <h1>Kontakt og Samarbeid</h1>
 
 <div class="info-tekst">
-  Dette er vår prosjektgruppe. Trykk på navn for generell eller kontaktinformasjon.
+  Dette er vår prosjektgruppe. Trykk på navn for generell- eller kontaktinformasjon.
 </div>
 
 <div class="navn-container">
-  <!-- All divs are changed to <a> tags linking to their .txt files -->
   <a href="deltaker1.html" class="navn-brikke">Deltaker 1 - Scrum Master</a>
   <a href="deltaker2.html" class="navn-brikke">Deltaker 2 - Prosjektmedlem</a>
   <a href="deltaker3.html" class="navn-brikke">Deltaker 3 - Prosjektmedlem</a>
