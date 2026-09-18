@@ -1,21 +1,78 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Kontakt oss</title>
-  </head>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #eef2f7;
+  font-family: Arial, sans-serif;
+}
 
-  <body>
-    
-    <ul>
-      <li><a href="index.html">Hjem</a></li>
-      <li><a href="kontakt.html">Kontakt oss</a></li>
-      <li><a href="https://vg.no">Partnere</a></li>
-    </ul>
+h1 {
+   color: black;
+}
 
-    
-    <p1>Her kan du kontakte oss</p1>
-  </body>
+.info-tekst {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  max-width: 800px;
+}
+
+.navn-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 16px 20px;
+  max-width: 800px;
+}
+
+/* Changed to target <a> tags and removed text-decoration */
+a.navn-brikke {
+  display: block; /* Ensures the whole tile is clickable */
+  text-decoration: none; /* Removes the default blue underline */
+  background-color: #ffffff;
+  color: #333;
+  padding: 16px 20px;
+  border-left: 5px solid #4CAF50;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.navn-brikke:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  background-color: #fcfdfc;
+} /* Added missing closing bracket here */
+
+@media (max-width: 600px) {
+  .navn-container {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<h1>Kontakt og Samarbeid</h1>
+
+<div class="info-tekst">
+  Dette er vår prosjektgruppe. Trykk på navn for generell eller kontaktinformasjon.
+</div>
+
+<div class="navn-container">
+  <!-- All divs are changed to <a> tags linking to their .txt files -->
+  <a href="deltaker1.html" class="navn-brikke">Deltaker 1 - Scrum Master</a>
+  <a href="deltaker2.html" class="navn-brikke">Deltaker 2 - Prosjektmedlem</a>
+  <a href="deltaker3.html" class="navn-brikke">Deltaker 3 - Prosjektmedlem</a>
+  <a href="deltaker4.html" class="navn-brikke">Jesper Olsen - Prosjektmedlem</a>
+  <a href="deltaker5.html" class="navn-brikke">Deltaker 5 - Prosjektmedlem</a>
+  <a href="deltaker6.html" class="navn-brikke">Deltaker 6 - Prosjektmedlem</a>
+  <a href="deltaker7.html" class="navn-brikke">Deltaker 7 - Prosjektmedlem</a>
+</div>
+
+</body>
 </html>
