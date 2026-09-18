@@ -61,22 +61,28 @@ a {
   -moz-user-select: none;
 }
 .navItems {
+  display: flex;
   flex-direction: row;
   white-space: nowrap;
-  gap: calc(.25rem * 8);
+  gap: 1rem;
 }
 
 #spacingNav {
   height: 5rem;
 }
 #spacingMain {
-  height: 1000px;
+  width: 100%;
+  aspect-ratio: 2000 / 1000;
 }
 .mainContent {
   height: 100%;
   flex: 1 1 0%;
 }
 
+#map {
+  top: 350px;
+  left: 244px;
+}
 header {
   background-color: grey;
   padding: 5px;
