@@ -61,16 +61,18 @@ a {
   -moz-user-select: none;
 }
 .navItems {
+  display: flex;
   flex-direction: row;
   white-space: nowrap;
-  gap: calc(.25rem * 8);
+  gap: 1rem;
 }
 
 #spacingNav {
   height: 5rem;
 }
 #spacingMain {
-  height: 1000px;
+  width: 100%;
+  aspect-ratio: 2000 / 1000;
 }
 .mainContent {
   height: 100%;
