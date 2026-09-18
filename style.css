@@ -1,10 +1,10 @@
 :root {
-  --primary-color-light: #f5f5f5;
+  --primary-color-light: #FFFFFF;
   --primary-color-dark: #141414;
   --secondary-color-light: #e0e0e0;
   --secondary-color-dark: #404040;
   --accent-color: #ff5722; /* Main theme color */
-  --text-color-light: #333333;
+  --text-color-light: #000000;
   --text-color-dark: #F1F0EA;
   --text-color-dark2: #abaaa7;
   --font-family: "Inter", sans-serif;
@@ -17,6 +17,12 @@
   padding: 0px;
 }
 
+/* Removes ugly blue highlight on links */
+a {
+  text-decoration: none;
+  color: var(--text-color-light);
+}
+
 .fixTop {
   position: fixed;
   color: var(--text-color-light);
@@ -27,20 +33,48 @@
   z-index: 50;
 }
 .navbar {
-  background-color: var(--primary-color-dark);
+  background-color: var(--primary-color-light) 50% transparent;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
+  border-width: 1px;
+  border-style: solid;
   border-color: var(--secondary-color-dark);
+  border-radius: 25px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   gap: 2rem;
   max-width: 64rem;
   margin-right: auto;
   margin-left: auto;
   padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  color: var(--text-color-light);
+}
+.navLogo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+.navItems {
+  flex-direction: row;
+  white-space: nowrap;
+  gap: calc(.25rem * 8);
+}
+
+#spacingNav {
+  height: 5rem;
+}
+#spacingMain {
+  height: 1000px;
+}
+.mainContent {
+  height: 100%;
+  flex: 1 1 0%;
 }
 
 header {
@@ -56,7 +90,8 @@ header {
 body {
   background-color: var(--primary-color-light);
   color: var(--text-color-light);
-  background-image: url("img/Bryggen.jpg");
+  background-image: url("img/bg.png");
+  background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: 50% 0%;
   margin: 0;
