@@ -1,187 +1,144 @@
-<!DOCTYPE html>
-<html lang="no">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kontakt oss</title>
-<style>
-  :root {
-    --bakgrunn: #f3f6f4;
-    --kort: #ffffff;
-    --tekst: #1b2a24;
-    --tekst-dempet: #5c6b64;
-    --gronn: #2e7d5b;
-    --gronn-lys: #e2efe8;
-    --ramme: #dfe6e2;
-  }
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  * { box-sizing: border-box; }
+    <link rel="stylesheet" href="styles.css" />
 
-  body {
-    margin: 0;
-    padding: 48px 24px 72px;
-    background-color: var(--bakgrunn);
-    font-family: "Segoe UI", Arial, sans-serif;
-    color: var(--tekst);
-  }
+    <!-- Google's Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
 
-  h1 {
-    margin: 0 0 12px;
-    text-align: center;
-    font-size: 40px;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-  }
+    <title>BiB - Kontakt oss</title>
+  </head>
 
-  .info-tekst {
-    margin: 0 auto 48px;
-    max-width: 560px;
-    text-align: center;
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--tekst-dempet);
-  }
+  <!-- Navbar -->
+  <div id="navbar"></div>
 
-  .navn-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 32px 28px;
-    max-width: 1080px;
-    margin: 0 auto;
-  }
+  <body>
+    <!-- Kontaktinnhold -->
+    <main class="kontaktMain">
+      <h1 class="kontaktTittel">Kontakt oss</h1>
 
-  a.navn-brikke {
-    display: block;
-    width: 230px;
-    text-decoration: none;
-    color: inherit;
-    background-color: var(--kort);
-    border: 1px solid var(--ramme);
-    border-radius: 10px;
-    padding: 18px 18px 20px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  }
+      <p class="kontaktInfo">
+        Dette er vår prosjektgruppe. Trykk på et navn for å lese mer om personen
+        og finne kontaktinformasjon.
+      </p>
 
-  a.navn-brikke:hover,
-  a.navn-brikke:focus-visible {
-    transform: translateY(-3px);
-    border-color: var(--gronn);
-    box-shadow: 0 10px 22px rgba(27, 42, 36, 0.12);
-  }
+      <div class="kontaktContainer">
+        <a href="deltaker1.html" class="kontaktBoks">
+          <p class="kontaktNavn">Deltaker 1</p>
 
-  a.navn-brikke:focus-visible {
-    outline: 3px solid var(--gronn);
-    outline-offset: 3px;
-  }
+          <div class="kontaktPortrett">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"
+              />
+            </svg>
+          </div>
 
-  .navn {
-    margin: 0 0 14px;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 600;
-  }
+          <p class="kontaktRolle">Scrum Master</p>
+        </a>
 
-  .portrett {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 190px;
-    background-color: var(--gronn-lys);
-    border-radius: 6px;
-  }
+        <a
+          href="gruppe_14/stian_haveland/stian_haveland.html"
+          class="kontaktBoks"
+        >
+          <p class="kontaktNavn">Stian Haveland</p>
 
-  .portrett svg {
-    width: 74px;
-    height: 74px;
-    fill: #a9c4b7;
-  }
+          <div class="kontaktPortrett">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"
+              />
+            </svg>
+          </div>
 
-  .rolle {
-    margin: 14px 0 0;
-    text-align: center;
-    font-size: 14px;
-    color: var(--gronn);
-  }
+          <p class="kontaktRolle">Prosjektmedlem</p>
+        </a>
 
-  @media (max-width: 560px) {
-    h1 { font-size: 30px; }
-    a.navn-brikke { width: 100%; max-width: 320px; }
-  }
+        <a href="deltaker3.html" class="kontaktBoks">
+          <p class="kontaktNavn">Deltaker 3</p>
 
-  @media (prefers-reduced-motion: reduce) {
-    a.navn-brikke { transition: none; }
-    a.navn-brikke:hover { transform: none; }
-  }
-</style>
-</head>
-<body>
+          <div class="kontaktPortrett">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"
+              />
+            </svg>
+          </div>
 
-<h1>Kontakt oss</h1>
+          <p class="kontaktRolle">Prosjektmedlem</p>
+        </a>
 
-<p class="info-tekst">
-  Dette er vår prosjektgruppe. Trykk på et navn for å lese mer om personen og finne kontaktinformasjon.
-</p>
+        <a href="gruppe_14/jesper_olsen/JesperOlsen.html" class="kontaktBoks">
+          <p class="kontaktNavn">Jesper Olsen</p>
 
-<div class="navn-container">
+          <div class="kontaktPortrett">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"
+              />
+            </svg>
+          </div>
 
-  <a href="deltaker1.html" class="navn-brikke">
-    <p class="navn">Deltaker 1</p>
-    <div class="portrett">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"/></svg>
-    </div>
-    <p class="rolle">Scrum Master</p>
-  </a>
+          <p class="kontaktRolle">Prosjektmedlem</p>
+        </a>
 
-  <a href="deltaker2.html" class="navn-brikke">
-    <p class="navn">Deltaker 2</p>
-    <div class="portrett">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"/></svg>
-    </div>
-    <p class="rolle">Prosjektmedlem</p>
-  </a>
+        <a href="deltaker5.html" class="kontaktBoks">
+          <p class="kontaktNavn">Deltaker 5</p>
 
-  <a href="deltaker3.html" class="navn-brikke">
-    <p class="navn">Deltaker 3</p>
-    <div class="portrett">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"/></svg>
-    </div>
-    <p class="rolle">Prosjektmedlem</p>
-  </a>
+          <div class="kontaktPortrett">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"
+              />
+            </svg>
+          </div>
 
-  <a href="JesperOlsen.html" class="navn-brikke">
-    <p class="navn">Jesper Olsen</p>
-    <div class="portrett">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"/></svg>
-    </div>
-    <p class="rolle">Prosjektmedlem</p>
-  </a>
+          <p class="kontaktRolle">Prosjektmedlem</p>
+        </a>
 
-  <a href="deltaker5.html" class="navn-brikke">
-    <p class="navn">Deltaker 5</p>
-    <div class="portrett">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"/></svg>
-    </div>
-    <p class="rolle">Prosjektmedlem</p>
-  </a>
+        <a href="deltaker6.html" class="kontaktBoks">
+          <p class="kontaktNavn">Deltaker 6</p>
 
-  <a href="deltaker6.html" class="navn-brikke">
-    <p class="navn">Deltaker 6</p>
-    <div class="portrett">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"/></svg>
-    </div>
-    <p class="rolle">Prosjektmedlem</p>
-  </a>
+          <div class="kontaktPortrett">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"
+              />
+            </svg>
+          </div>
 
-  <a href="deltaker7.html" class="navn-brikke">
-    <p class="navn">Deltaker 7</p>
-    <div class="portrett">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"/></svg>
-    </div>
-    <p class="rolle">Prosjektmedlem</p>
-  </a>
+          <p class="kontaktRolle">Prosjektmedlem</p>
+        </a>
 
-</div>
+        <a href="deltaker7.html" class="kontaktBoks">
+          <p class="kontaktNavn">Deltaker 7</p>
 
-</body>
+          <div class="kontaktPortrett">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"
+              />
+            </svg>
+          </div>
+
+          <p class="kontaktRolle">Prosjektmedlem</p>
+        </a>
+      </div>
+    </main>
+    <script>
+      fetch("nav.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+  </body>
 </html>
