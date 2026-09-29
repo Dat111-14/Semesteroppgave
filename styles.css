@@ -197,6 +197,7 @@ body {
   height: 190px;
   background-color: var(--secondary-color-light);
   border-radius: 6px;
+  border: 1px solid var(--accent-color-green);
 }
 
 .kontaktPortrett svg {
@@ -205,12 +206,20 @@ body {
   fill: #a9c4b7;
 }
 
+.kontaktPortrett img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
 .kontaktRolle {
   margin: 14px 0 0;
   text-align: center;
   font-size: 14px;
   color: var(--accent-color-green);
 }
+
 
 /* Smaller screens */
 @media (max-width: 560px) {
