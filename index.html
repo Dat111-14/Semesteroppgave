@@ -4,32 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Link CSS style sheet -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
     <!-- Google's Inter Font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <!-- Tablist title -->
     <title>BiB</title>
   </head>
-  
+
   <body>
-    <!-- Navbar start -->
-    <div class="fixTop">
-      <nav class="navbar">
-        <div class="navLogo">
-          <a href="index.html">BiB</a>
-        </div>
-        <div class="navItems">
-          <a href="./kontakt.html" class="navItem">Kontakt oss</a>
-          <a href="./bolig.html" class="navItem">Bolig</a>
-          <a href="gruppe_14/stian_haveland/stian_haveland.html" class="navItem">Om oss</a>
-        </div>
-      </nav>
-    </div>
-    <!-- Navbar end-->
-    <div id="spacingNav"></div>
-    <div id="spacingMain"></div>
+    <!-- Navbar -->
+    <div id="navbar"></div>
+    
     <div class="mainContent">
       <p>
         I Bergen kommune er det over <br />
@@ -39,14 +29,31 @@
         hva vi snakker om fordi vi har<br />
         lokalet vårt rett her i Bergen by!
       </p>
-      <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1972.6180321761456!2d5.347519376965203!3d60.36894987513443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x463cfeace6223393%3A0x63214955f30aac37!2sH%C3%B8gskulen%20p%C3%A5%20Vestlandet!5e0!3m2!1sen!2sno!4v1789734454955!5m2!1sen!2sno" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <iframe
+        class="map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1972.6180321761456!2d5.347519376965203!3d60.36894987513443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x463cfeace6223393%3A0x63214955f30aac37!2sH%C3%B8gskulen%20p%C3%A5%20Vestlandet!5e0!3m2!1sen!2sno!4v1789734454955!5m2!1sen!2sno"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
     </div>
     <footer class="footer">
-      <p3>Bolig i Bergen AS</p3>
-      <p4>Org.nr: 123 456 789</p4>
-      <p5>Adresse: Torgallmenningen 1, 5014 Bergen</p5>
-      <p6>Telefon: +47 55 55 55 55</p6>
-      <p7>E-post: info@boligi Bergen.no</p7>
+      <p>Bolig i Bergen AS</p>
+      <p>Org.nr: 123 456 789</p>
+      <p>Adresse: Torgallmenningen 1, 5014 Bergen</p>
+      <p>Telefon: +47 55 55 55 55</p>
+      <p>E-post: info@boligi Bergen.no</p>
     </footer>
+
+    <script>
+      fetch("nav.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
   </body>
 </html>

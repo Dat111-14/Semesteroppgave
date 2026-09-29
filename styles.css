@@ -1,0 +1,249 @@
+/* Shared variables that can be reused */
+:root {
+  --primary-color-light: #ffffff;
+  --primary-color-dark: #141414;
+  --secondary-color-light: #e0e0e0;
+  --secondary-color-dark: #404040;
+  --accent-color: #ff5722; /* Main theme color */
+  --accent-color-green: #2e7d5b;
+  --text-color-light: #000000;
+  --text-color-dark: #f1f0ea;
+  --text-color-dark2: #abaaa7;
+  --font-family: "Inter", sans-serif;
+}
+
+
+
+/* General styles */
+* {
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  /* Removes ugly blue highlight on links */
+  text-decoration: none;
+  color: var(--text-color-light);
+}
+
+body {
+  background-color: var(--primary-color-light);
+  color: var(--text-color-light);
+  background-image: url("img/bg.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
+  margin: 0;
+  padding-top: 100px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Navbar at the top of the page */
+.fixTop {
+  position: fixed;
+  color: var(--text-color-light);
+  padding: 16px 16px 0 16px;
+  top: 0;
+  width: 100%;
+  font-weight: 600;
+  z-index: 50;
+}
+
+.navbar {
+  background-color: var(--primary-color-light) 50% transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--secondary-color-dark);
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  max-width: 50%;
+  padding: 12px 20px;
+  margin: 0 auto;
+  color: var(--text-color-light);
+}
+
+.navLogo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+.navItems {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  gap: 16px;
+}
+/* End of navbar */
+
+
+/* Footer */
+.footer {
+  position: relative;
+  width: 100%;
+  margin-top: auto;
+  background-color: var(--primary-color-light);
+  border-top: 1px solid var(--secondary-color-dark);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  color: var(--text-color-light);
+}
+/* End of footer */
+
+/* End of general styles */
+
+
+
+/* Home page */
+.mainContent {
+  height: 100%;
+  flex: 1 1 0%;
+  padding-top: 40%;
+}
+
+.map {
+  width: 400px;
+  height: 400px;
+  top: 350px;
+  left: 244px;
+}
+/* End of home page */
+
+
+/* Kontakt page */
+.kontaktMain {
+  width: 100%;
+  padding: 0 24px 64px;
+}
+
+.kontaktTittel {
+  position: static;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.kontaktInfo {
+  max-width: 560px;
+  margin: 0 auto 48px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--primary-color-light);
+}
+
+.kontaktContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px 28px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.kontaktBoks {
+  display: block;
+  width: 230px;
+  padding: 18px 18px 20px;
+  background-color: var(--primary-color-light);
+  border: 1px solid var(--secondary-color-light);
+  border-radius: 10px;
+  color: var(--text-color-light);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.kontaktBoks:hover,
+.kontaktBoks:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--accent-color-green);
+  box-shadow: 0 10px 22px rgba(27, 42, 36, 0.12);
+}
+
+.kontaktBoks:focus-visible {
+  outline: 3px solid var(--accent-color-green);
+  outline-offset: 3px;
+}
+
+.kontaktNavn {
+  margin: 0 0 14px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.kontaktPortrett {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 190px;
+  background-color: var(--secondary-color-light);
+  border-radius: 6px;
+}
+
+.kontaktPortrett svg {
+  width: 74px;
+  height: 74px;
+  fill: #a9c4b7;
+}
+
+.kontaktRolle {
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--accent-color-green);
+}
+
+/* Smaller screens */
+@media (max-width: 560px) {
+  .kontaktTittel {
+    font-size: 30px;
+  }
+
+  .kontaktBoks {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .kontaktBoks {
+    transition: none;
+  }
+
+  .kontaktBoks:hover {
+    transform: none;
+  }
+}
+/* End of kontakt page */
+
+
+
+/* Start of om oss page */
+
+/* End of om oss page */
+
+
+
+/* Start of oppussing page */
+
+/* End of oppussing page */

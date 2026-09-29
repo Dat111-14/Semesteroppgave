@@ -1,73 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<style>
-body {
-  background-color: #eef2f7;
-  font-family: Arial, sans-serif;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-h1 {
-   color: black;
-}
+    <link rel="stylesheet" href="styles.css" />
 
-.info-tekst {
-  margin-top: 0;
-  margin-bottom: 24px;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
-  max-width: 800px;
-}
+    <!-- Google's Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
 
-.navn-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr; 
-  gap: 16px 20px;
-  max-width: 800px;
-}
+    <title>BiB - Kontakt oss</title>
+  </head>
 
-a.navn-brikke {
-  display: block; 
-  text-decoration: none; 
-  background-color: #ffffff;
-  color: #333;
-  padding: 16px 20px;
-  border-left: 5px solid #4CAF50;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer; 
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+  <body>
+    <!-- Navbar -->
+    <div id="navbar"></div>
 
-a.navn-brikke:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
-  background-color: #fcfdfc;
-}
+    <!-- Kontaktinnhold -->
+    <main class="kontaktMain">
+      <h1 class="kontaktTittel">Kontakt oss</h1>
 
+      <p class="kontaktInfo">
+        Dette er vår prosjektgruppe. Trykk på et navn for å lese mer om personen
+        og finne kontaktinformasjon.
+      </p>
 
-}
-</style>
-</head>
-<body>
+      <div class="kontaktContainer">
+        <a href="deltaker1.html" class="kontaktBoks">
+          <p class="kontaktNavn">Deltaker 1</p>
 
-<h1>Kontakt og Samarbeid</h1>
+          <div class="kontaktPortrett">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"
+              />
+            </svg>
+          </div>
 
-<div class="info-tekst">
-  Dette er vår prosjektgruppe. Trykk på navn for generell- eller kontaktinformasjon.
-</div>
+          <p class="kontaktRolle">Scrum Master</p>
+        </a>
 
-<div class="navn-container">
-  <a href="deltaker1.html" class="navn-brikke">Deltaker 1 - Scrum Master</a>
-  <a href="deltaker2.html" class="navn-brikke">Deltaker 2 - Prosjektmedlem</a>
-  <a href="deltaker3.html" class="navn-brikke">Deltaker 3 - Prosjektmedlem</a>
-  <a href="JesperOlsen.html" class="navn-brikke">Jesper Olsen - Prosjektmedlem</a>
-  <a href="deltaker5.html" class="navn-brikke">Deltaker 5 - Prosjektmedlem</a>
-  <a href="deltaker6.html" class="navn-brikke">Deltaker 6 - Prosjektmedlem</a>
-  <a href="deltaker7.html" class="navn-brikke">Deltaker 7 - Prosjektmedlem</a>
-</div>
+        <a
+          href="gruppe_14/stian_haveland/stian_haveland.html"
+          class="kontaktBoks"
+        >
+          <p class="kontaktNavn">Stian Haveland</p>
 
-</body>
+          <div class="kontaktPortrett">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"
+              />
+            </svg>
+          </div>
+
+          <p class="kontaktRolle">Prosjektmedlem</p>
+        </a>
+
+        <a href="deltaker3.html" class="kontaktBoks">
+          <p class="kontaktNavn">Deltaker 3</p>
+
+          <div class="kontaktPortrett">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"
+              />
+            </svg>
+          </div>
+
+          <p class="kontaktRolle">Prosjektmedlem</p>
+        </a>
+
+        <a href="gruppe_14/jesper_olsen/JesperOlsen.html" class="kontaktBoks">
+          <p class="kontaktNavn">Jesper Olsen</p>
+
+          <div class="kontaktPortrett">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"
+              />
+            </svg>
+          </div>
+
+          <p class="kontaktRolle">Prosjektmedlem</p>
+        </a>
+
+        <a href="deltaker5.html" class="kontaktBoks">
+          <p class="kontaktNavn">Deltaker 5</p>
+
+          <div class="kontaktPortrett">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"
+              />
+            </svg>
+          </div>
+
+          <p class="kontaktRolle">Prosjektmedlem</p>
+        </a>
+
+        <a href="deltaker6.html" class="kontaktBoks">
+          <p class="kontaktNavn">Deltaker 6</p>
+
+          <div class="kontaktPortrett">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"
+              />
+            </svg>
+          </div>
+
+          <p class="kontaktRolle">Prosjektmedlem</p>
+        </a>
+
+        <a href="deltaker7.html" class="kontaktBoks">
+          <p class="kontaktNavn">Deltaker 7</p>
+
+          <div class="kontaktPortrett">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"
+              />
+            </svg>
+          </div>
+
+          <p class="kontaktRolle">Prosjektmedlem</p>
+        </a>
+      </div>
+    </main>
+    <script>
+      fetch("nav.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+  </body>
 </html>
