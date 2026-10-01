@@ -110,6 +110,23 @@ body {
 
 
 /* Home page */
+.main-title  {
+  text-align: center;
+  padding-top: 5%;
+}
+.main-title h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 800%;
+  color: var(--primary-color-light);
+}
+
+.main-title p {
+  font-size: 200%;
+  color: var(--primary-color-light);
+}
+
+
 .mainContent {
   height: 100%;
   flex: 1 1 0%;
