@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f3;
+    color: #1c1c1c;
+}
+
+
+/* Layout */
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 30px 60px;
+}
+
+
+/* Header */
+
+header {
+    margin-bottom: 100px;
+}
+
+.back-button {
+    display: inline-block;
+
+    color: #1c1c1c;
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: opacity 0.2s ease;
+}
+
+.back-button:hover {
+    opacity: 0.5;
+}
+
+
+/* Hero */
+
+.hero {
+    margin-bottom: 80px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 100px);
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+    max-width: 900px;
+}
+
+.hero p {
+    margin-top: 25px;
+
+    font-size: 18px;
+    color: #666;
+}
+
+
+/* Image */
+
+.project-image {
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+.project-image img {
+    display: block;
+
+    width: 100%;
+    height: 550px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+}
+
+
+/* Content */
+
+.content {
+    display: grid;
+
+    grid-template-columns: 1fr 2fr;
+
+    gap: 80px;
+}
+
+.content-label {
+    font-size: 13px;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    color: #888;
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.description p {
+    margin-bottom: 25px;
+}
+
+
+/* Footer */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 120px;
+    padding-top: 25px;
+
+    border-top: 1px solid #ddd;
+
+    color: #777;
+    font-size: 13px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .container {
+        padding: 30px 20px;
+    }
+
+
+    /* Header */
+
+    header {
+        margin-bottom: 70px;
+    }
+
+
+    /* Hero */
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+
+    /* Image */
+
+    .project-image {
+        margin-bottom: 50px;
+    }
+
+    .project-image img {
+        height: 350px;
+    }
+
+
+    /* Content */
+
+    .content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+
+    /* Footer */
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
