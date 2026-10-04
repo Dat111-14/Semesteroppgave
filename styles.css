@@ -12,8 +12,6 @@
   --font-family: "Inter", sans-serif;
 }
 
-
-
 /* General styles */
 * {
   font-family: "Inter", sans-serif;
@@ -42,7 +40,6 @@ body {
   flex-direction: column;
 }
 
-
 /* Navbar at the top of the page */
 .fixTop {
   position: fixed;
@@ -64,7 +61,7 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 32px;
-  max-width: 50%;
+  max-width: 80%;
   padding: 12px 20px;
   margin: 0 auto;
   color: var(--text-color-light);
@@ -76,7 +73,6 @@ body {
   align-items: center;
   user-select: none;
   -webkit-user-select: none;
-  -moz-user-select: none;
 }
 
 .navItems {
@@ -87,10 +83,8 @@ body {
 }
 /* End of navbar */
 
-
 /* Footer */
 .footer {
-  position: relative;
   width: 100%;
   margin-top: auto;
   background-color: var(--primary-color-light);
@@ -107,10 +101,8 @@ body {
 
 /* End of general styles */
 
-
-
 /* Home page */
-.main-title  {
+.main-title {
   text-align: center;
   padding-top: 5%;
 }
@@ -126,7 +118,6 @@ body {
   color: var(--primary-color-light);
 }
 
-
 .mainContent {
   height: 100%;
   flex: 1 1 0%;
@@ -136,11 +127,8 @@ body {
 .map {
   width: 400px;
   height: 400px;
-  top: 350px;
-  left: 244px;
 }
 /* End of home page */
-
 
 /* Kontakt page */
 .kontaktMain {
@@ -149,7 +137,6 @@ body {
 }
 
 .kontaktTittel {
-  position: static;
   text-align: center;
   font-size: 40px;
   font-weight: 600;
@@ -182,15 +169,10 @@ body {
   border: 1px solid var(--secondary-color-light);
   border-radius: 10px;
   color: var(--text-color-light);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
 }
 
 .kontaktBoks:hover,
 .kontaktBoks:focus-visible {
-  transform: translateY(-3px);
   border-color: var(--accent-color-green);
   box-shadow: 0 10px 22px rgba(27, 42, 36, 0.12);
 }
@@ -237,7 +219,6 @@ body {
   color: var(--accent-color-green);
 }
 
-
 /* Smaller screens */
 @media (max-width: 560px) {
   .kontaktTittel {
@@ -249,27 +230,120 @@ body {
     max-width: 320px;
   }
 }
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .kontaktBoks {
-    transition: none;
-  }
-
-  .kontaktBoks:hover {
-    transform: none;
-  }
-}
 /* End of kontakt page */
-
-
 
 /* Start of om oss page */
 
 /* End of om oss page */
 
-
-
 /* Start of oppussing page */
 
 /* End of oppussing page */
+
+/* Start av Quiz page */
+.quiz {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 50px;
+  text-align: center;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.quiz h1 {
+  font-size: 42px;
+  margin-bottom: 35px;
+}
+
+#question {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+#answers {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+#answers button {
+  flex: 1;
+  min-height: 100px;
+  padding: 20px;
+  background: white;
+  border: 2px solid var(--accent-color-green);
+  border-radius: 15px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-color-light);
+  cursor: pointer;
+}
+
+#answers button:hover {
+  background: var(--accent-color-green);
+  color: white;
+}
+
+#result {
+  display: none;
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 50px;
+  text-align: center;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+#result h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+#resultTitle {
+  font-size: 42px;
+  color: var(--accent-color-green);
+  margin-bottom: 15px;
+}
+
+#resultText {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+#result button {
+  padding: 14px 25px;
+  background: var(--accent-color-green);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Mobil */
+@media (max-width: 700px) {
+  .quiz {
+    margin: 40px 20px;
+    padding: 30px 20px;
+  }
+
+  .quiz h1 {
+    font-size: 32px;
+  }
+
+  #question {
+    font-size: 20px;
+  }
+
+  #answers {
+    flex-direction: column;
+  }
+
+  #answers button {
+    width: 100%;
+  }
+}
+/* End of Quiz page */

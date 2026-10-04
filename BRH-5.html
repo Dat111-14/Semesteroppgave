@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finn din boligtype</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div id="navbar"></div>
+
+    <main class="boligtype-page">
+
+        <section class="quiz">
+            <h1>Hvilken bolig passer deg?</h1>
+
+            <p id="question"></p>
+
+            <div id="answers"></div>
+        </section>
+
+        <section id="result" class="result">
+
+            <h2>Din boligtype er:</h2>
+
+            <h3 id="resultTitle"></h3>
+
+            <p id="resultText"></p>
+
+            <button onclick="restartQuiz()">Ta quizen på nytt</button>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>Bolig i Bergen AS</p>
+        <p>Org.nr: 123 456 789</p>
+        <p>Adresse: Torgallmenningen 1, 5014 Bergen</p>
+        <p>Telefon: +47 55 55 55 55</p>
+        <p>E-post: info@boligibergen.no</p>
+    </footer>
+
+    <script>
+
+        fetch("nav.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("navbar").innerHTML = data;
+            });
+
+        const questions = [
+            {
+                question: "Hvor viktig er det å bo sentralt?",
+                answers: [
+                    ["Veldig viktig", "apartment"],
+                    ["Ganske viktig", "townhouse"],
+                    ["Ikke så viktig", "house"]
+                ]
+            },
+            {
+                question: "Hvor mye plass trenger du?",
+                answers: [
+                    ["Lite", "apartment"],
+                    ["Middels", "townhouse"],
+                    ["Mye", "house"]
+                ]
+            },
+            {
+                question: "Hvor viktig er egen uteplass?",
+                answers: [
+                    ["Ikke viktig", "apartment"],
+                    ["Ganske viktig", "townhouse"],
+                    ["Veldig viktig", "house"]
+                ]
+            },
+            {
+                question: "Hvor mye vedlikehold ønsker du?",
+                answers: [
+                    ["Så lite som mulig", "apartment"],
+                    ["Litt", "townhouse"],
+                    ["Det gjør ikke noe", "house"]
+                ]
+            },
+            {
+                question: "Hvor viktig er privatliv?",
+                answers: [
+                    ["Ikke så viktig", "apartment"],
+                    ["Ganske viktig", "townhouse"],
+                    ["Veldig viktig", "house"]
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        let scores = {
+            apartment: 0,
+            townhouse: 0,
+            house: 0
+        };
+
+        function showQuestion() {
+
+            document.getElementById("question").textContent =
+                questions[currentQuestion].question;
+
+            const answers = document.getElementById("answers");
+
+            answers.innerHTML = "";
+
+            questions[currentQuestion].answers.forEach(answer => {
+
+                const button = document.createElement("button");
+
+                button.textContent = answer[0];
+
+                button.onclick = function() {
+                    scores[answer[1]]++;
+                    nextQuestion();
+                };
+
+                answers.appendChild(button);
+
+            });
+        }
+
+        function nextQuestion() {
+
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+
+            document.querySelector(".quiz").style.display = "none";
+
+            document.getElementById("result").style.display = "block";
+
+            let result = "apartment";
+
+            if (scores.townhouse > scores[result]) {
+                result = "townhouse";
+            }
+
+            if (scores.house > scores[result]) {
+                result = "house";
+            }
+
+            const names = {
+                apartment: "Leilighet",
+                townhouse: "Rekkehus",
+                house: "Enebolig"
+            };
+
+            const texts = {
+                apartment: "Leilighet passer deg som ønsker en sentral bolig med lite vedlikehold.",
+                townhouse: "Rekkehus passer deg som ønsker mer plass og uteområde, men ikke like mye vedlikehold som en enebolig.",
+                house: "Enebolig passer deg som ønsker mye plass, privatliv og egen uteplass."
+            };
+
+            document.getElementById("resultTitle").textContent = names[result];
+
+            document.getElementById("resultText").textContent = texts[result];
+        }
+
+        function restartQuiz() {
+
+            currentQuestion = 0;
+
+            scores = {
+                apartment: 0,
+                townhouse: 0,
+                house: 0
+            };
+
+            document.querySelector(".quiz").style.display = "block";
+
+            document.getElementById("result").style.display = "none";
+
+            showQuestion();
+        }
+
+        showQuestion();
+
+    </script>
+
+</body>
+
+</html>
