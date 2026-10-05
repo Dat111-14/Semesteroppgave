@@ -58,8 +58,8 @@
           <p class="kontaktRolle">Prosjektmedlem</p>
         </a>
 
-        <a href="deltaker3.html" class="kontaktBoks">
-          <p class="kontaktNavn">Deltaker 3</p>
+        <a href="gruppe_14/oliver_sund/oliver_sund.html" class="kontaktBoks">
+          <p class="kontaktNavn">Oliver Sund</p>
 
           <div class="kontaktPortrett">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -86,8 +86,8 @@
           <p class="kontaktRolle">Prosjektmedlem</p>
         </a>
 
-        <a href="deltaker5.html" class="kontaktBoks">
-          <p class="kontaktNavn">Deltaker 5</p>
+        <a href="gruppe_14/john-arne_hestenes/john-arne_hestenes.html" class="kontaktBoks">
+          <p class="kontaktNavn">John-Arne Hestenes</p>
 
           <div class="kontaktPortrett">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -100,8 +100,8 @@
           <p class="kontaktRolle">Prosjektmedlem</p>
         </a>
 
-        <a href="deltaker6.html" class="kontaktBoks">
-          <p class="kontaktNavn">Deltaker 6</p>
+        <a href="gruppe_14/henrik_waulen/hernik_waulen.html" class="kontaktBoks">
+          <p class="kontaktNavn">Herik Waulen</p>
 
           <div class="kontaktPortrett">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -114,8 +114,8 @@
           <p class="kontaktRolle">Prosjektmedlem</p>
         </a>
 
-        <a href="deltaker7.html" class="kontaktBoks">
-          <p class="kontaktNavn">Deltaker 7</p>
+        <a href="gruppe_14/kristoffer_helvik/kristoffer_helvik.html" class="kontaktBoks">
+          <p class="kontaktNavn">Kristoffer Helvik</p>
 
           <div class="kontaktPortrett">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -130,20 +130,13 @@
       </div>
     </main>
 
-    <footer class="footer">
-      <p>Bolig i Bergen AS</p>
-      <p>Org.nr: 123 456 789</p>
-      <p>Adresse: Torgallmenningen 1, 5014 Bergen</p>
-      <p>Telefon: +47 55 55 55 55</p>
-      <p>E-post: info@boligi Bergen.no</p>
-    </footer>
+    <div id="footer"></div>
 
     <script>
-      fetch("nav.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar").innerHTML = data;
-        });
+        const $ = id => document.getElementById(id);
+        
+        fetch("nav.html").then(r => r.text()).then(html => $("navbar").innerHTML = html);
+        fetch("footer.html").then(r => r.text()).then(html => $("footer").innerHTML = html);
     </script>
   </body>
 </html>

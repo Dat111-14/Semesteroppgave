@@ -24,7 +24,7 @@
       <h1>Bolig i Bergen</h1>
       <p>Vi finner et sted du kan kalle hjem</p>
     </div>
-    
+
     <div class="mainContent">
       <p>
         I Bergen kommune er det over <br />
@@ -45,20 +45,14 @@
         referrerpolicy="strict-origin-when-cross-origin"
       ></iframe>
     </div>
-    <footer class="footer">
-      <p>Bolig i Bergen AS</p>
-      <p>Org.nr: 123 456 789</p>
-      <p>Adresse: Torgallmenningen 1, 5014 Bergen</p>
-      <p>Telefon: +47 55 55 55 55</p>
-      <p>E-post: info@boligi Bergen.no</p>
-    </footer>
+
+    <div id="footer"></div>
 
     <script>
-      fetch("nav.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar").innerHTML = data;
-        });
+        const $ = id => document.getElementById(id);
+        
+        fetch("nav.html").then(r => r.text()).then(html => $("navbar").innerHTML = html);
+        fetch("footer.html").then(r => r.text()).then(html => $("footer").innerHTML = html);
     </script>
   </body>
 </html>

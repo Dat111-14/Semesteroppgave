@@ -36,20 +36,15 @@
 
     </main>
 
-    <footer class="footer">
-        <p>Bolig i Bergen AS</p>
-        <p>Org.nr: 123 456 789</p>
-        <p>Adresse: Torgallmenningen 1, 5014 Bergen</p>
-        <p>Telefon: +47 55 55 55 55</p>
-        <p>E-post: info@boligibergen.no</p>
-    </footer>
+    <div id="footer"></div>
 
     <script>
-
         const $ = id => document.getElementById(id);
         const quiz = document.querySelector(".quiz");
 
         fetch("nav.html").then(r => r.text()).then(html => $("navbar").innerHTML = html);
+        fetch("footer.html").then(r => r.text()).then(html => $("footer").innerHTML = html);
+
 
         // Spørsmål, deretter svar i fast rekkefølge: leilighet, rekkehus, enebolig
         const questions = [
