@@ -347,3 +347,18 @@ body {
   }
 }
 /* End of Quiz page */
+
+
+/* Start of Partnere page */
+
+.PartnereOverskrift{
+  text-align: center;
+  font-size: 40px;
+  font-weight: 600;
+  margin: 20px 0px 15px;
+  color: var(--primary-color-light);
+  padding-top: 7%;
+  padding-bottom: 17%;
+}
+
+/* End of Partnere page*/
