@@ -39,147 +39,92 @@
     </footer>
 
     <script>
-      fetch("nav.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar").innerHTML = data;
-        });
 
-      const questions = [
-        {
-          question: "Hvor viktig er det å bo sentralt?",
-          answers: [
-            ["Veldig viktig", "apartment"],
-            ["Ganske viktig", "townhouse"],
-            ["Ikke så viktig", "house"],
-          ],
-        },
-        {
-          question: "Hvor mye plass trenger du?",
-          answers: [
-            ["Lite", "apartment"],
-            ["Middels", "townhouse"],
-            ["Mye", "house"],
-          ],
-        },
-        {
-          question: "Hvor viktig er egen uteplass?",
-          answers: [
-            ["Ikke viktig", "apartment"],
-            ["Ganske viktig", "townhouse"],
-            ["Veldig viktig", "house"],
-          ],
-        },
-        {
-          question: "Hvor mye vedlikehold ønsker du?",
-          answers: [
-            ["Så lite som mulig", "apartment"],
-            ["Litt", "townhouse"],
-            ["Det gjør ikke noe", "house"],
-          ],
-        },
-        {
-          question: "Hvor viktig er privatliv?",
-          answers: [
-            ["Ikke så viktig", "apartment"],
-            ["Ganske viktig", "townhouse"],
-            ["Veldig viktig", "house"],
-          ],
-        },
-      ];
+        const $ = id => document.getElementById(id);
+        const quiz = document.querySelector(".quiz");
 
-      let currentQuestion = 0;
+        fetch("nav.html").then(r => r.text()).then(html => $("navbar").innerHTML = html);
 
-      let scores = {
-        apartment: 0,
-        townhouse: 0,
-        house: 0,
-      };
+        // Spørsmål, deretter svar i fast rekkefølge: leilighet, rekkehus, enebolig
+        const questions = [
+            {
+                question: "Hvor viktig er det å bo sentralt?",
+                answers: [
+                    ["Veldig viktig", "apartment"],
+                    ["Ganske viktig", "townhouse"],
+                    ["Ikke så viktig", "house"]
+                ]
+            },
+            {
+                question: "Hvor mye plass trenger du?",
+                answers: [
+                    ["Lite", "apartment"],
+                    ["Middels", "townhouse"],
+                    ["Mye", "house"]
+                ]
+            },
+            {
+                question: "Hvor viktig er egen uteplass?",
+                answers: [
+                    ["Ikke viktig", "apartment"],
+                    ["Ganske viktig", "townhouse"],
+                    ["Veldig viktig", "house"]
+                ]
+            },
+            {
+                question: "Hvor mye vedlikehold ønsker du?",
+                answers: [
+                    ["Så lite som mulig", "apartment"],
+                    ["Litt", "townhouse"],
+                    ["Det gjør ikke noe", "house"]
+                ]
+            },
+            {
+                question: "Hvor viktig er privatliv?",
+                answers: [
+                    ["Ikke så viktig", "apartment"],
+                    ["Ganske viktig", "townhouse"],
+                    ["Veldig viktig", "house"]
+                ]
+            }
+        ];
 
-      function showQuestion() {
-        document.getElementById("question").textContent =
-          questions[currentQuestion].question;
+        let currentQuestion = 0;
 
-        const answers = document.getElementById("answers");
-
-        answers.innerHTML = "";
-
-        questions[currentQuestion].answers.forEach((answer) => {
-          const button = document.createElement("button");
-
-          button.textContent = answer[0];
-
-          button.onclick = function () {
-            scores[answer[1]]++;
-            nextQuestion();
-          };
-
-          answers.appendChild(button);
-        });
-      }
-
-      function nextQuestion() {
-        currentQuestion++;
-
-        if (currentQuestion < questions.length) {
-          showQuestion();
-        } else {
-          showResult();
-        }
-      }
-
-      function showResult() {
-        document.querySelector(".quiz").style.display = "none";
-
-        document.getElementById("result").style.display = "block";
-
-        let result = "apartment";
-
-        if (scores.townhouse > scores[result]) {
-          result = "townhouse";
-        }
-
-        if (scores.house > scores[result]) {
-          result = "house";
-        }
-
-        const names = {
-          apartment: "Leilighet",
-          townhouse: "Rekkehus",
-          house: "Enebolig",
+        let scores = {
+            apartment: 0,
+            townhouse: 0,
+            house: 0
         };
 
-        const texts = {
-          apartment:
-            "Leilighet passer deg som ønsker en sentral bolig med lite vedlikehold.",
-          townhouse:
-            "Rekkehus passer deg som ønsker mer plass og uteområde, men ikke like mye vedlikehold som en enebolig.",
-          house:
-            "Enebolig passer deg som ønsker mye plass, privatliv og egen uteplass.",
-        };
+        function showQuestion() {
+            if (current == questions.length) return showResult();
+            const [question, ...answers] = questions[current];
+            $("question").textContent = question;
+            $("answers").replaceChildren(...answers.map((textContent, i) =>
+                Object.assign(document.createElement("button"), {
+                    textContent,
+                    onclick: () => { scores[i]++; current++; showQuestion(); }
+                })
+            ));
+        }
 
-        document.getElementById("resultTitle").textContent = names[result];
+        function showResult() {
+            // indexOf gir første treff, så uavgjort går til leilighet, deretter rekkehus
+            [$("resultTitle").textContent, $("resultText").textContent] = results[scores.indexOf(Math.max(...scores))];
+            quiz.style.display = "none";
+            $("result").style.display = "block";
+        }
 
-        document.getElementById("resultText").textContent = texts[result];
-      }
+        function restartQuiz() {
+            current = 0;
+            scores = [0, 0, 0];
+            quiz.style.display = $("result").style.display = "";
+            showQuestion();
+        }
 
-      function restartQuiz() {
-        currentQuestion = 0;
+        restartQuiz();
 
-        scores = {
-          apartment: 0,
-          townhouse: 0,
-          house: 0,
-        };
-
-        document.querySelector(".quiz").style.display = "block";
-
-        document.getElementById("result").style.display = "none";
-
-        showQuestion();
-      }
-
-      showQuestion();
     </script>
   </body>
 </html>
