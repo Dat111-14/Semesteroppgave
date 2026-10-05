@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <hrml>
 	<head>
-		<<!doctype html>
+		<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -15,8 +15,12 @@ table, th, td{
 }
 </style>
 <body>
+    <!-- Navbar -->
+    <div id="navbar"></div>
+	
+	
+<h1 class="PartnereOverskrift">Våre Partnere</h1>
 
-<h1>Våre Partnere</h1>
 <h2><a href="https://www.adja.no/"> Adolf Johnson</a></h2>
 	<table id="Adolf_Johnson" style="Width:70">
 		<tr>
@@ -90,3 +94,21 @@ table, th, td{
 				<td>100kr per meter</td>
 			</tr>
 		</table>
+
+    <footer class="footer">
+      <p>Bolig i Bergen AS</p>
+      <p>Org.nr: 123 456 789</p>
+      <p>Adresse: Torgallmenningen 1, 5014 Bergen</p>
+      <p>Telefon: +47 55 55 55 55</p>
+      <p>E-post: info@boligi Bergen.no</p>
+    </footer>
+	
+		<script>
+      fetch("nav.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+
+	</body>
