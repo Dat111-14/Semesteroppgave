@@ -1,41 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="no">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Finn din boligtype</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
 
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finn din boligtype</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
     <div id="navbar"></div>
 
     <main class="boligtype-page">
-      <section class="quiz">
-        <h1>Hvilken bolig passer deg?</h1>
 
-        <p id="question"></p>
+        <section class="quiz">
+            <h1>Hvilken bolig passer deg?</h1>
 
-        <div id="answers"></div>
-      </section>
+            <p id="question"></p>
 
-      <section id="result" class="result">
-        <h2>Din boligtype er:</h2>
+            <div id="answers"></div>
+        </section>
 
-        <h3 id="resultTitle"></h3>
+        <section id="result" class="result">
 
-        <p id="resultText"></p>
+            <h2>Din boligtype er:</h2>
 
-        <button onclick="restartQuiz()">Ta quizen på nytt</button>
-      </section>
+            <h3 id="resultTitle"></h3>
+
+            <p id="resultText"></p>
+
+            <button onclick="restartQuiz()">Ta quizen på nytt</button>
+
+        </section>
+
     </main>
 
     <footer class="footer">
-      <p>Bolig i Bergen AS</p>
-      <p>Org.nr: 123 456 789</p>
-      <p>Adresse: Torgallmenningen 1, 5014 Bergen</p>
-      <p>Telefon: +47 55 55 55 55</p>
-      <p>E-post: info@boligibergen.no</p>
+        <p>Bolig i Bergen AS</p>
+        <p>Org.nr: 123 456 789</p>
+        <p>Adresse: Torgallmenningen 1, 5014 Bergen</p>
+        <p>Telefon: +47 55 55 55 55</p>
+        <p>E-post: info@boligibergen.no</p>
     </footer>
 
     <script>
@@ -47,55 +53,20 @@
 
         // Spørsmål, deretter svar i fast rekkefølge: leilighet, rekkehus, enebolig
         const questions = [
-            {
-                question: "Hvor viktig er det å bo sentralt?",
-                answers: [
-                    ["Veldig viktig", "apartment"],
-                    ["Ganske viktig", "townhouse"],
-                    ["Ikke så viktig", "house"]
-                ]
-            },
-            {
-                question: "Hvor mye plass trenger du?",
-                answers: [
-                    ["Lite", "apartment"],
-                    ["Middels", "townhouse"],
-                    ["Mye", "house"]
-                ]
-            },
-            {
-                question: "Hvor viktig er egen uteplass?",
-                answers: [
-                    ["Ikke viktig", "apartment"],
-                    ["Ganske viktig", "townhouse"],
-                    ["Veldig viktig", "house"]
-                ]
-            },
-            {
-                question: "Hvor mye vedlikehold ønsker du?",
-                answers: [
-                    ["Så lite som mulig", "apartment"],
-                    ["Litt", "townhouse"],
-                    ["Det gjør ikke noe", "house"]
-                ]
-            },
-            {
-                question: "Hvor viktig er privatliv?",
-                answers: [
-                    ["Ikke så viktig", "apartment"],
-                    ["Ganske viktig", "townhouse"],
-                    ["Veldig viktig", "house"]
-                ]
-            }
+            ["Hvor viktig er det å bo sentralt?", "Veldig viktig", "Ganske viktig", "Ikke så viktig"],
+            ["Hvor mye plass trenger du?", "Lite", "Middels", "Mye"],
+            ["Hvor viktig er egen uteplass?", "Ikke viktig", "Ganske viktig", "Veldig viktig"],
+            ["Hvor mye vedlikehold ønsker du?", "Så lite som mulig", "Litt", "Det gjør ikke noe"],
+            ["Hvor viktig er privatliv?", "Ikke så viktig", "Ganske viktig", "Veldig viktig"]
         ];
 
-        let currentQuestion = 0;
+        const results = [
+            ["Leilighet", "Leilighet passer deg som ønsker en sentral bolig med lite vedlikehold."],
+            ["Rekkehus", "Rekkehus passer deg som ønsker mer plass og uteområde, men ikke like mye vedlikehold som en enebolig."],
+            ["Enebolig", "Enebolig passer deg som ønsker mye plass, privatliv og egen uteplass."]
+        ];
 
-        let scores = {
-            apartment: 0,
-            townhouse: 0,
-            house: 0
-        };
+        let current, scores;
 
         function showQuestion() {
             if (current == questions.length) return showResult();
@@ -126,5 +97,7 @@
         restartQuiz();
 
     </script>
-  </body>
+
+</body>
+
 </html>
