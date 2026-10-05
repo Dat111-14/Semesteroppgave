@@ -3,70 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
 
     <title>[Prosjektnavn]</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body>
 
-    <div class="container">
+    <div id="portfolio-page">
 
-        <header>
-            <a href="../../kontakt.html" class="back-button">
-                ← Tilbake
-            </a>
-        </header>
+        <div id="portfolio-container">
 
-
-        <main>
-
-            <section class="hero">
-                <h1>Bolig i Bergen</h1>
-
-                <p>
-                    Mikkel Bergmann, Prosjektmedlem
-                </p>
-            </section>
+            <header id="portfolio-header">
+                <a href="../../index.html" id="portfolio-back">
+                    ← Tilbake
+                </a>
+            </header>
 
 
-            <section class="project-image">
-                <img
-                    src="./img/profile-img.png"
-                    alt="Bilde av meg"
-                >
-            </section>
+            <main id="portfolio-main">
 
+                <section id="portfolio-hero">
+                    <h1 id="portfolio-title">
+                        Mikkel Bergmann
+                    </h1>
 
-            <section class="content">
-
-                <div class="content-label">
-                    <span>Om prosjektet</span>
-                </div>
-
-                <div class="description">
-
-                    <p>
-                        [Skriv teksten her.]
+                    <p id="portfolio-subtitle">
+                        Bolig i Bergen
                     </p>
-
-                    <p>
-                        [Fortsett teksten her..]
-                    </p>
-
-                </div>
-
-            </section>
-
-        </main>
+                </section>
 
 
-        <footer>
-            <span>Mikkel Bergmann</span>
-            <span>2005</span>
-        </footer>
+                <section id="portfolio-image-section">
+                    <img
+                        id="portfolio-image"
+                        src="./img/profile-img.png"
+                        alt="[Beskrivelse av bildet]"
+                    >
+                </section>
+
+
+                <section id="portfolio-content">
+
+                    <div id="portfolio-content-label">
+                        Om prosjektet
+                    </div>
+
+                    <div id="portfolio-description">
+
+                        <p>
+                            [Skriv teksten din her. Fortell om prosjektet,
+                            idéen bak det, målgruppen, designvalgene dine
+                            og hvordan du jobbet med løsningen.]
+                        </p>
+
+                        <p>
+                            [Fortsett teksten her. Du kan beskrive
+                            utfordringer, hva du lærte underveis og
+                            hvordan det ferdige resultatet ble.]
+                        </p>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+
+            <footer id="portfolio-footer">
+                <span>Mikkel Bergmann</span>
+                <span>2005</span>
+            </footer>
+
+        </div>
 
     </div>
 
