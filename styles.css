@@ -101,34 +101,169 @@ body {
 
 /* End of general styles */
 
+
 /* Home page */
 .main-title {
+  min-height: 650px;
+  padding: 20px 24px 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding-top: 5%;
 }
+
 .main-title h1 {
+  margin: 0;
   font-family: "Times New Roman", Times, serif;
   font-style: italic;
-  font-size: 800%;
+  font-size: clamp(56px, 9vw, 120px);
+  font-weight: 700;
+  letter-spacing: -5px;
   color: var(--primary-color-light);
 }
 
 .main-title p {
-  font-size: 200%;
+  margin-top: 20px;
+  font-size: clamp(20px, 2.5vw, 30px);
   color: var(--primary-color-light);
 }
 
-.mainContent {
-  height: 100%;
-  flex: 1 1 0%;
-  padding-top: 40%;
+
+/* Introduction */
+.intro {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 90px 30px;
+  text-align: center;
+}
+
+.intro h2,
+.services h2,
+.about h2,
+.location h2 {
+  margin-bottom: 25px;
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 600;
+}
+
+.intro p {
+  max-width: 750px;
+  margin: 0 auto 18px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #404040;
+}
+
+
+/* Services */
+.services {
+  padding: 90px 30px;
+  background-color: #f5f5f3;
+  text-align: center;
+}
+
+.service-container {
+  max-width: 1100px;
+  margin: 50px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.service-card {
+  padding: 35px 30px;
+
+  background-color: var(--primary-color-light);
+  border: 1px solid var(--secondary-color-light);
+  border-radius: 16px;
+
+  text-align: left;
+}
+
+.service-card:hover {
+  border-color: var(--accent-color-green);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.service-card h3 {
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.service-card p {
+  margin-bottom: 25px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555555;
+}
+
+.service-card a,
+.about a {
+  display: inline-block;
+  color: var(--accent-color-green);
+  font-weight: 600;
+}
+
+.service-card a:hover,
+.about a:hover {
+  opacity: 0.65;
+}
+
+
+/* About BIB */
+.about {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 100px 30px;
+
+  text-align: center;
+}
+
+.about p {
+  margin-bottom: 25px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #404040;
+}
+
+
+/* Location */
+.location {
+  padding: 90px 30px 100px;
+
+  background-color: #f5f5f3;
+
+  text-align: center;
+}
+
+.location p {
+  max-width: 650px;
+  margin: 0 auto 40px;
+
+  font-size: 18px;
+  line-height: 1.6;
+  color: #404040;
 }
 
 .map {
-  width: 400px;
-  height: 400px;
+  display: block;
+
+  width: min(100%, 700px);
+  height: 420px;
+
+  margin: 0 auto;
+
+  border: 0;
+  border-radius: 16px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 /* End of home page */
+
+
 
 /* Kontakt page */
 .kontaktMain {
@@ -218,27 +353,18 @@ body {
   font-size: 14px;
   color: var(--accent-color-green);
 }
-
-/* Smaller screens */
-@media (max-width: 560px) {
-  .kontaktTittel {
-    font-size: 30px;
-  }
-
-  .kontaktBoks {
-    width: 100%;
-    max-width: 320px;
-  }
-}
 /* End of kontakt page */
+
 
 /* Start of om oss page */
 
 /* End of om oss page */
 
+
 /* Start of oppussing page */
 
 /* End of oppussing page */
+
 
 /* Start av Quiz page */
 .quiz {
@@ -393,8 +519,6 @@ body {
     text-decoration: none;
 
     font-size: 14px;
-
-    transition: opacity 0.2s ease;
 }
 
 .portfolio-page .portfolio-back:hover {
@@ -452,10 +576,7 @@ body {
 
 .portfolio-page .portfolio-content-label {
     font-size: 13px;
-
-    text-transform: uppercase;
     letter-spacing: 1px;
-
     color: .888;
 }
 
@@ -588,7 +709,6 @@ body.stian-body {
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  transition: 0.3s;
 }
 
 .stian-page .social-links a:hover {
@@ -617,7 +737,6 @@ body.stian-body {
   padding: 12px 15px;
   color: #a8a9b4;
   font-size: 15px;
-  transition: 0.3s;
 }
 
 .stian-page #navbar a span {
@@ -657,6 +776,7 @@ body.stian-body {
 .stian-page .section-title {
   padding-bottom: 30px;
   margin-bottom: 0;
+  text-align: left;
 }
 
 .stian-page .section-title h2 {
@@ -666,10 +786,10 @@ body.stian-body {
   font-size: 32px;
   font-weight: 700;
   color: #173b6c;
+  text-align: left;
 }
 
 .stian-page .section-title h2::after {
-  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
@@ -711,18 +831,19 @@ body.stian-body {
   color: white;
   border-right: 2px solid white;
   padding-right: 4px;
+}
 
 /* About */
 .stian-page .about-grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 30px;
+  gap: 40px;
   align-items: start;
 }
 
 .stian-page .profile-large {
   width: 100%;
-  max-width: 350px;
+  max-width: 500px;
   height: auto;
   border-radius: 0;
   border: 0;
@@ -732,6 +853,7 @@ body.stian-body {
 
 .stian-page .content {
   font-size: 17px;
+  text-align: left;
 }
 
 .stian-page .content h3 {
@@ -739,6 +861,7 @@ body.stian-body {
   font-size: 26px;
   font-weight: 700;
   color: #173b6c;
+  text-align: left;
 }
 
 .stian-page .details-grid {
@@ -890,11 +1013,6 @@ body.stian-body {
   background: white;
   overflow: hidden;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: 0.3s;
-}
-
-.stian-page .project-card:hover {
-  transform: translateY(-5px);
 }
 
 .stian-page .project-image {
@@ -908,11 +1026,6 @@ body.stian-body {
   height: 100%;
   display: block;
   object-fit: cover;
-  transition: transform 0.3s;
-}
-
-.stian-page .project-card:hover .project-image img {
-  transform: scale(1.04);
 }
 
 .stian-page .project-card h3 {

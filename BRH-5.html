@@ -1,98 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="no">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Finn din boligtype</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
+  <body>
+    <div class="fixTop">
+      <nav class="navbar">
+        <div class="navLogo">
+          <a href="./index.html">BiB</a>
+        </div>
 
-    <div id="navbar"></div>
+        <div class="navItems">
+          <a href="./kontakt.html" class="navItem">Kontakt oss</a>
+          <a href="./Oppussing.html" class="navItem">Oppussing</a>
+          <a href="./om_oss.html" class="navItem">Om oss</a>
+          <a href="./BRH-5.html" class="navItem">Quiz</a>
+        </div>
+      </nav>
+    </div>
 
     <main class="boligtype-page">
+      <section class="quiz">
+        <h1>Hvilken bolig passer deg?</h1>
 
-        <section class="quiz">
-            <h1>Hvilken bolig passer deg?</h1>
+        <p id="question"></p>
 
-            <p id="question"></p>
+        <div id="answers"></div>
+      </section>
 
-            <div id="answers"></div>
-        </section>
+      <section id="result" class="result">
+        <h2>Din boligtype er:</h2>
 
-        <section id="result" class="result">
+        <h3 id="resultTitle"></h3>
 
-            <h2>Din boligtype er:</h2>
+        <p id="resultText"></p>
 
-            <h3 id="resultTitle"></h3>
-
-            <p id="resultText"></p>
-
-            <button onclick="restartQuiz()">Ta quizen på nytt</button>
-
-        </section>
-
+        <button onclick="restartQuiz()">Ta quizen på nytt</button>
+      </section>
     </main>
 
-    <div id="footer"></div>
+    <footer class="footer">
+      <p>Bolig i Bergen AS</p>
+      <p>Org.nr: 123 456 789</p>
+      <p>Adresse: Torgallmenningen 1, 5014 Bergen</p>
+      <p>Telefon: +47 55 55 55 55</p>
+      <p>E-post: info@boligi Bergen.no</p>
+    </footer>
 
     <script>
-        const $ = id => document.getElementById(id);
-        const quiz = document.querySelector(".quiz");
+      const $ = (id) => document.getElementById(id);
+      const quiz = document.querySelector(".quiz");
 
-        fetch("nav.html").then(r => r.text()).then(html => $("navbar").innerHTML = html);
-        fetch("footer.html").then(r => r.text()).then(html => $("footer").innerHTML = html);
+      // Spørsmål, deretter svar i fast rekkefølge: leilighet, rekkehus, enebolig
+      const questions = [
+        [
+          "Hvor viktig er det å bo sentralt?",
+          "Veldig viktig",
+          "Ganske viktig",
+          "Ikke så viktig",
+        ],
+        ["Hvor mye plass trenger du?", "Lite", "Middels", "Mye"],
+        [
+          "Hvor viktig er egen uteplass?",
+          "Ikke viktig",
+          "Ganske viktig",
+          "Veldig viktig",
+        ],
+        [
+          "Hvor mye vedlikehold ønsker du?",
+          "Så lite som mulig",
+          "Litt",
+          "Det gjør ikke noe",
+        ],
+        [
+          "Hvor viktig er privatliv?",
+          "Ikke så viktig",
+          "Ganske viktig",
+          "Veldig viktig",
+        ],
+      ];
 
+      const results = [
+        [
+          "Leilighet",
+          "Leilighet passer deg som ønsker en sentral bolig med lite vedlikehold.",
+        ],
+        [
+          "Rekkehus",
+          "Rekkehus passer deg som ønsker mer plass og uteområde, men ikke like mye vedlikehold som en enebolig.",
+        ],
+        [
+          "Enebolig",
+          "Enebolig passer deg som ønsker mye plass, privatliv og egen uteplass.",
+        ],
+      ];
 
-        // Spørsmål, deretter svar i fast rekkefølge: leilighet, rekkehus, enebolig
-        const questions = [
-            ["Hvor viktig er det å bo sentralt?", "Veldig viktig", "Ganske viktig", "Ikke så viktig"],
-            ["Hvor mye plass trenger du?", "Lite", "Middels", "Mye"],
-            ["Hvor viktig er egen uteplass?", "Ikke viktig", "Ganske viktig", "Veldig viktig"],
-            ["Hvor mye vedlikehold ønsker du?", "Så lite som mulig", "Litt", "Det gjør ikke noe"],
-            ["Hvor viktig er privatliv?", "Ikke så viktig", "Ganske viktig", "Veldig viktig"]
-        ];
+      let current, scores;
 
-        const results = [
-            ["Leilighet", "Leilighet passer deg som ønsker en sentral bolig med lite vedlikehold."],
-            ["Rekkehus", "Rekkehus passer deg som ønsker mer plass og uteområde, men ikke like mye vedlikehold som en enebolig."],
-            ["Enebolig", "Enebolig passer deg som ønsker mye plass, privatliv og egen uteplass."]
-        ];
+      function showQuestion() {
+        if (current == questions.length) return showResult();
+        const [question, ...answers] = questions[current];
+        $("question").textContent = question;
+        $("answers").replaceChildren(
+          ...answers.map((textContent, i) =>
+            Object.assign(document.createElement("button"), {
+              textContent,
+              onclick: () => {
+                scores[i]++;
+                current++;
+                showQuestion();
+              },
+            }),
+          ),
+        );
+      }
 
-        let current, scores;
+      function showResult() {
+        // indexOf gir første treff, så uavgjort går til leilighet, deretter rekkehus
+        [$("resultTitle").textContent, $("resultText").textContent] =
+          results[scores.indexOf(Math.max(...scores))];
+        quiz.style.display = "none";
+        $("result").style.display = "block";
+      }
 
-        function showQuestion() {
-            if (current == questions.length) return showResult();
-            const [question, ...answers] = questions[current];
-            $("question").textContent = question;
-            $("answers").replaceChildren(...answers.map((textContent, i) =>
-                Object.assign(document.createElement("button"), {
-                    textContent,
-                    onclick: () => { scores[i]++; current++; showQuestion(); }
-                })
-            ));
-        }
+      function restartQuiz() {
+        current = 0;
+        scores = [0, 0, 0];
+        quiz.style.display = $("result").style.display = "";
+        showQuestion();
+      }
 
-        function showResult() {
-            // indexOf gir første treff, så uavgjort går til leilighet, deretter rekkehus
-            [$("resultTitle").textContent, $("resultText").textContent] = results[scores.indexOf(Math.max(...scores))];
-            quiz.style.display = "none";
-            $("result").style.display = "block";
-        }
-
-        function restartQuiz() {
-            current = 0;
-            scores = [0, 0, 0];
-            quiz.style.display = $("result").style.display = "";
-            showQuestion();
-        }
-
-        restartQuiz();
-
+      restartQuiz();
     </script>
-
-</body>
-
+  </body>
 </html>

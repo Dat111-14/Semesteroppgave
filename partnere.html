@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<hrml>
-	<head>
-		<!doctype html>
+<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -9,99 +6,133 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Partnere</title>
   </head>
-<style>
-table, th, td{
-	border:1px solid black;
-}
-</style>
-<body>
+
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+
+  <body>
     <!-- Navbar -->
-    <div id="navbar"></div>
-	
-	
-<h1 class="PartnereOverskrift">Våre Partnere</h1>
+    <div class="fixTop">
+      <nav class="navbar">
+        <div class="navLogo">
+          <a href="./index.html">BiB</a>
+        </div>
 
-<h2><a href="https://www.adja.no/"> Adolf Johnson</a></h2>
-	<table id="Adolf_Johnson" style="Width:70">
-		<tr>
-			<th>Treslag</th>
-			<th>Pris per tre</th>
-		</tr>
-		<tr>
-			<td>eik</td>
-			<td>2000</td>
-		</tr>
-		<tr>
-			<td>Furu</td>
-			<td>1800</td>
-		</tr>
-		
-	</table>
+        <div class="navItems">
+          <a href="./kontakt.html" class="navItem">Kontakt oss</a>
+          <a href="./Oppussing.html" class="navItem">Oppussing</a>
+          <a href="./om_oss.html" class="navItem">Om oss</a>
+          <a href="./BRH-5.html" class="navItem">Quiz</a>
+        </div>
+      </nav>
+    </div>
 
-<h2><a href="https://www.byggstart.no/kategori/tak">Byggstart</a></h2>
-		<table id="byggstart" style="width:50">
-				<tr>
-					<th>materialtype</th>
-					<th>pris per m² </th>
-					<th>Kommentar</th>
-					
-				</tr>
-					<td>Asfaltshingel</td>
-					<td>1500kr</td>
-					<td>populært på hytter og mindre boliger</td>
-				</tr>
-				<tr>
-					<td>Takplater</td>
-					<td>2100kr</td>
-					<td>Holdbart og raskt å montere</td>
-				</tr>
+    <h1 class="PartnereOverskrift">Våre Partnere</h1>
 
-				</tr>
-		</table>
-	<h2><a href="https://www.kid.no/gardiner">Kid</a></h2>
-		<table id=""Kid" style="width:50">
-				<tr>
-					<th>Produkt</th>
-					<th>Kategori</th>
-					<th>Pris</th>
-				</tr>
-				<tr>
-					<td>Gardin</td>
-					<td>Vindu</td>
-					<td>650kr</td>
-				</tr>
-				<tr>
-					<td>Lampe</td>
-					<td>Elektronikk</td>
-					<td>200-7000kr</td>
-				</tr>
-		</table>
-	<h2><a href="https://plantasjen.no/no">Plantasjen</a></h2>
-		<table>
-			<tr>
-				<th>Plante</th>
-				<th>Størrelse</th>
-				<th>Pris</th>				
-			</tr>
-			<tr>
-				<td>Solsikke</td>
-				<td>80cm</td>
-				<td>50kr</td>
-			</tr>
-			<tr>
-				<td>Hekk</td>
-				<td>90cm høy</td>
-				<td>100kr per meter</td>
-			</tr>
-		</table>
+    <h2>
+      <a href="https://www.adja.no/">Adolf Johnson</a>
+    </h2>
 
-    <div id="footer"></div>
+    <table id="Adolf_Johnson" style="width: 70">
+      <tr>
+        <th>Treslag</th>
+        <th>Pris per tre</th>
+      </tr>
 
-		<script>
-        const $ = id => document.getElementById(id);
-        
-        fetch("nav.html").then(r => r.text()).then(html => $("navbar").innerHTML = html);
-        fetch("footer.html").then(r => r.text()).then(html => $("footer").innerHTML = html);
-    </script>
+      <tr>
+        <td>eik</td>
+        <td>2000</td>
+      </tr>
 
-	</body>
+      <tr>
+        <td>Furu</td>
+        <td>1800</td>
+      </tr>
+    </table>
+
+    <h2>
+      <a href="https://www.byggstart.no/kategori/tak">Byggstart</a>
+    </h2>
+
+    <table id="byggstart" style="width: 50">
+      <tr>
+        <th>materialtype</th>
+        <th>pris per m²</th>
+        <th>Kommentar</th>
+      </tr>
+
+      <tr>
+        <td>Asfaltshingel</td>
+        <td>1500kr</td>
+        <td>populært på hytter og mindre boliger</td>
+      </tr>
+
+      <tr>
+        <td>Takplater</td>
+        <td>2100kr</td>
+        <td>Holdbart og raskt å montere</td>
+      </tr>
+    </table>
+
+    <h2>
+      <a href="https://www.kid.no/gardiner">Kid</a>
+    </h2>
+
+    <table id="Ki&#x64;*" * style="width: 50">
+      <tr>
+        <th>Produkt</th>
+        <th>Kategori</th>
+        <th>Pris</th>
+      </tr>
+
+      <tr>
+        <td>Gardin</td>
+        <td>Vindu</td>
+        <td>650kr</td>
+      </tr>
+
+      <tr>
+        <td>Lampe</td>
+        <td>Elektronikk</td>
+        <td>200-7000kr</td>
+      </tr>
+    </table>
+
+    <h2>
+      <a href="https://plantasjen.no/no">Plantasjen</a>
+    </h2>
+
+    <table>
+      <tr>
+        <th>Plante</th>
+        <th>Størrelse</th>
+        <th>Pris</th>
+      </tr>
+
+      <tr>
+        <td>Solsikke</td>
+        <td>80cm</td>
+        <td>50kr</td>
+      </tr>
+
+      <tr>
+        <td>Hekk</td>
+        <td>90cm høy</td>
+        <td>100kr per meter</td>
+      </tr>
+    </table>
+
+    <footer class="footer">
+      <p>Bolig i Bergen AS</p>
+      <p>Org.nr: 123 456 789</p>
+      <p>Adresse: Torgallmenningen 1, 5014 Bergen</p>
+      <p>Telefon: +47 55 55 55 55</p>
+      <p>E-post: info@boligi Bergen.no</p>
+    </footer>
+  </body>
+</html>

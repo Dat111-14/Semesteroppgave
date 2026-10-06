@@ -18,41 +18,123 @@
 
   <body>
     <!-- Navbar -->
-    <div id="navbar"></div>
+    <div class="fixTop">
+      <nav class="navbar">
+        <div class="navLogo">
+          <a href="./index.html">BiB</a>
+        </div>
+
+        <div class="navItems">
+          <a href="./kontakt.html" class="navItem">Kontakt oss</a>
+          <a href="./Oppussing.html" class="navItem">Oppussing</a>
+          <a href="./om_oss.html" class="navItem">Om oss</a>
+          <a href="./BRH-5.html" class="navItem">Quiz</a>
+        </div>
+      </nav>
+    </div>
 
     <div class="main-title">
       <h1>Bolig i Bergen</h1>
       <p>Vi finner et sted du kan kalle hjem</p>
     </div>
 
-    <div class="mainContent">
+    <!-- Introduksjon -->
+    <div class="intro">
+      <h2>Velkommen til Bolig i Bergen</h2>
+
       <p>
-        I Bergen kommune er det over <br />
-        140 000 boliger, vårt mål er <br />
-        å passe på at boligen din<br />
-        passer best for deg. Vi vet <br />
-        hva vi snakker om fordi vi har<br />
-        lokalet vårt rett her i Bergen by!
+        I Bergen kommune er det over 140 000 boliger. Vårt mål er å gjøre det
+        enklere for deg å ta vare på, vedlikeholde og utvikle boligen din.
       </p>
+
+      <p>
+        Bolig i Bergen AS samler nyttig informasjon om oppussing, vedlikehold,
+        boligøkonomi og tjenester knyttet til bolig.
+      </p>
+    </div>
+
+    <!-- Tjenester -->
+    <div class="services">
+      <h2>Hva kan vi hjelpe deg med?</h2>
+
+      <div class="service-container">
+        <div class="service-card">
+          <h3>Oppussing</h3>
+
+          <p>
+            Skal du pusse opp? Her finner du informasjon og tips om blant annet
+            bad, kjøkken, parkett og vinduer.
+          </p>
+
+          <a href="./Oppussing.html"> Les mer om oppussing </a>
+        </div>
+
+        <div class="service-card">
+          <h3>Vedlikehold</h3>
+
+          <p>
+            Finn informasjon om vedlikehold av boligen, inkludert terrasse, tak,
+            hage, kledning og andre utendørsområder.
+          </p>
+
+          <a href="./partnere.html"> Se våre anbefalinger </a>
+        </div>
+
+        <div class="service-card">
+          <h3>Boligøkonomi</h3>
+
+          <p>
+            Som boligeier er det viktig å ha kontroll på lån, kommunale
+            utgifter, skatt og andre faste kostnader.
+          </p>
+
+          <a href="./okonomi.html"> Les mer om boligøkonomi </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Om BIB -->
+    <div class="about">
+      <h2>Om Bolig i Bergen AS</h2>
+
+      <p>
+        Bolig i Bergen AS, også kalt BIB, er et informasjonstilbud for
+        boligeiere og innbyggere i Bergen. Vi ønsker å samle relevant
+        informasjon på ett sted slik at det blir enklere å finne ut hvordan man
+        kan ta vare på boligen sin.
+      </p>
+
+      <a href="./om_oss.html"> Les mer om oss </a>
+    </div>
+
+    <!-- Kart -->
+    <div class="location">
+      <h2>Finn oss i Bergen</h2>
+
+      <p>
+        Vi holder til sentralt i Bergen. Ta gjerne kontakt dersom du har
+        spørsmål eller ønsker å samarbeide med oss.
+      </p>
+
       <iframe
         class="map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1972.6180321761456!2d5.347519376965203!3d60.36894987513443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x463cfeace6223393%3A0x63214955f30aac37!2sH%C3%B8gskulen%20p%C3%A5%20Vestlandet!5e0!3m2!1sen!2sno!4v1789734454955!5m2!1sen!2sno"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1971.0955096759483!2d5.322239076694718!3d60.394100325341036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x463cfea80ea67b0b%3A0xa99654fb1449736b!2sTorgallmenningen%201%2C%205012%20Bergen!5e0!3m2!1sno!2sno!4v1791287164818!5m2!1sno!2sno" 
         width="600"
         height="450"
         style="border: 0"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="strict-origin-when-cross-origin"
-      ></iframe>
+        title="Kart som viser hvor Bolig i Bergen holder til">
+      </iframe>
     </div>
 
-    <div id="footer"></div>
-
-    <script>
-        const $ = id => document.getElementById(id);
-        
-        fetch("nav.html").then(r => r.text()).then(html => $("navbar").innerHTML = html);
-        fetch("footer.html").then(r => r.text()).then(html => $("footer").innerHTML = html);
-    </script>
+    <footer class="footer">
+      <p>Bolig i Bergen AS</p>
+      <p>Org.nr: 123 456 789</p>
+      <p>Adresse: Torgallmenningen 1, 5014 Bergen</p>
+      <p>Telefon: +47 55 55 55 55</p>
+      <p>E-post: info@boligi Bergen.no</p>
+    </footer>
   </body>
 </html>
