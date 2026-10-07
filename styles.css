@@ -9,6 +9,7 @@
   --text-color-light: #000000;
   --text-color-dark2: #abaaa7;
   --font-family: "Inter", sans-serif;
+  --heading-font: "Times New Roman", Times, serif;
   --background-color-dark: #f5f5f3;
 }
 
@@ -108,10 +109,12 @@ body {
 }
 
 .page-title {
-  text-align: center;
-  font-size: 40px;
-  font-weight: 600;
   margin-bottom: 24px;
+  text-align: center;
+  font: italic 700 clamp(44px, 6vw, 72px) var(--heading-font);
+  letter-spacing: -2px;
+  color: var(--primary-color-light);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 .card {
@@ -129,6 +132,24 @@ body {
 
 .page .card h2:first-child {
   margin-top: 0;
+}
+
+.page .card h3 {
+  margin: 24px 0 10px;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.page .card ul,
+.page .card ol {
+  margin: 0 0 16px 24px;
+}
+
+.page .card li {
+  margin-bottom: 6px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--secondary-color-dark);
 }
 
 .page .card p {
@@ -181,10 +202,7 @@ body {
 }
 
 .main-title h1 {
-  font:
-    italic 700 clamp(56px, 9vw, 120px) "Times New Roman",
-    Times,
-    serif;
+  font: italic 700 clamp(56px, 9vw, 120px) var(--heading-font);
   letter-spacing: -5px;
 }
 
@@ -193,8 +211,22 @@ body {
   font-size: clamp(20px, 2.5vw, 30px);
 }
 
+/* Welcome box */
+.intro {
+  position: relative;
+  width: calc(100% - 48px);
+  max-width: 900px;
+  margin: -140px auto 90px;
+  text-align: center;
+  border-top: 5px solid var(--accent-color-green);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.intro p:last-child {
+  margin-bottom: 0;
+}
+
 /* Shared section layout */
-.intro,
 .services,
 .about,
 .location {
@@ -213,15 +245,9 @@ body {
   background-color: var(--background-color-dark);
 }
 
-.intro,
-.about {
-  margin: 0 auto;
-}
-.intro {
-  max-width: 900px;
-}
 .about {
   max-width: 850px;
+  margin: 0 auto;
 }
 
 .intro h2,
