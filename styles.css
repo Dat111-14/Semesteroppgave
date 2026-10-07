@@ -948,3 +948,17 @@ body.portfolio {
   }
 }
 /* End of Stian page */
+
+/* Start of Oliver page */
+
+.oliver{
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.oliverBilde{
+  width: 200px;
+  height: 200px;
+
+}
+
+/* End of Oliver page */
