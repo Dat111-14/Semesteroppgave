@@ -1,22 +1,13 @@
 <!doctype html>
-<html>
+<html lang="no">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BiB - Partnere</title>
     <link rel="stylesheet" href="styles.css" />
-    <title>Partnere</title>
-
-    <style>
-      table,
-      th,
-      td {
-        border: 1px solid black;
-      }
-    </style>
   </head>
 
   <body>
-    <!-- Navbar -->
     <div class="fixTop">
       <nav class="navbar">
         <div class="navLogo">
@@ -32,100 +23,84 @@
       </nav>
     </div>
 
-    <h1 class="PartnereOverskrift">Våre Partnere</h1>
+    <main class="page">
+      <h1 class="page-title">Våre partnere</h1>
 
-    <h2>
-      <a href="https://www.adja.no/">Adolf Johnson</a>
-    </h2>
+      <section class="card">
+        <h2><a href="https://www.adja.no/">Adolf Johnson</a></h2>
+        <table>
+          <tr>
+            <th>Treslag</th>
+            <th>Pris per tre</th>
+          </tr>
+          <tr>
+            <td>Eik</td>
+            <td>2000 kr</td>
+          </tr>
+          <tr>
+            <td>Furu</td>
+            <td>1800 kr</td>
+          </tr>
+        </table>
 
-    <table id="Adolf_Johnson">
-      <tr>
-        <th>Treslag</th>
-        <th>Pris per tre</th>
-      </tr>
+        <h2><a href="https://www.byggstart.no/kategori/tak">Byggstart</a></h2>
+        <table>
+          <tr>
+            <th>Materialtype</th>
+            <th>Pris per m²</th>
+            <th>Kommentar</th>
+          </tr>
+          <tr>
+            <td>Asfaltshingel</td>
+            <td>1500 kr</td>
+            <td>Populært på hytter og mindre boliger</td>
+          </tr>
+          <tr>
+            <td>Takplater</td>
+            <td>2100 kr</td>
+            <td>Holdbart og raskt å montere</td>
+          </tr>
+        </table>
 
-      <tr>
-        <td>eik</td>
-        <td>2000</td>
-      </tr>
+        <h2><a href="https://www.kid.no/gardiner">Kid</a></h2>
+        <table>
+          <tr>
+            <th>Produkt</th>
+            <th>Kategori</th>
+            <th>Pris</th>
+          </tr>
+          <tr>
+            <td>Gardin</td>
+            <td>Vindu</td>
+            <td>650 kr</td>
+          </tr>
+          <tr>
+            <td>Lampe</td>
+            <td>Elektronikk</td>
+            <td>200–7000 kr</td>
+          </tr>
+        </table>
 
-      <tr>
-        <td>Furu</td>
-        <td>1800</td>
-      </tr>
-    </table>
-
-    <h2>
-      <a href="https://www.byggstart.no/kategori/tak">Byggstart</a>
-    </h2>
-
-    <table id="byggstart">
-      <tr>
-        <th>materialtype</th>
-        <th>pris per m²</th>
-        <th>Kommentar</th>
-      </tr>
-
-      <tr>
-        <td>Asfaltshingel</td>
-        <td>1500kr</td>
-        <td>populært på hytter og mindre boliger</td>
-      </tr>
-
-      <tr>
-        <td>Takplater</td>
-        <td>2100kr</td>
-        <td>Holdbart og raskt å montere</td>
-      </tr>
-    </table>
-
-    <h2>
-      <a href="https://www.kid.no/gardiner">Kid</a>
-    </h2>
-
-    <table id="Ki&#x64;*">
-      <tr>
-        <th>Produkt</th>
-        <th>Kategori</th>
-        <th>Pris</th>
-      </tr>
-
-      <tr>
-        <td>Gardin</td>
-        <td>Vindu</td>
-        <td>650kr</td>
-      </tr>
-
-      <tr>
-        <td>Lampe</td>
-        <td>Elektronikk</td>
-        <td>200-7000kr</td>
-      </tr>
-    </table>
-
-    <h2>
-      <a href="https://plantasjen.no/no">Plantasjen</a>
-    </h2>
-
-    <table>
-      <tr>
-        <th>Plante</th>
-        <th>Størrelse</th>
-        <th>Pris</th>
-      </tr>
-
-      <tr>
-        <td>Solsikke</td>
-        <td>80cm</td>
-        <td>50kr</td>
-      </tr>
-
-      <tr>
-        <td>Hekk</td>
-        <td>90cm høy</td>
-        <td>100kr per meter</td>
-      </tr>
-    </table>
+        <h2><a href="https://plantasjen.no/no">Plantasjen</a></h2>
+        <table>
+          <tr>
+            <th>Plante</th>
+            <th>Størrelse</th>
+            <th>Pris</th>
+          </tr>
+          <tr>
+            <td>Solsikke</td>
+            <td>80 cm</td>
+            <td>50 kr</td>
+          </tr>
+          <tr>
+            <td>Hekk</td>
+            <td>90 cm høy</td>
+            <td>100 kr per meter</td>
+          </tr>
+        </table>
+      </section>
+    </main>
 
     <footer class="footer">
       <p>Bolig i Bergen AS</p>

@@ -1,0 +1,2117 @@
+From 186c04fe8bbe70fc2b21f29cd06557d5dc0440d8 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Wed, 7 Oct 2026 22:26:01 +0000
+Subject: [PATCH] =?UTF-8?q?Rydd=20opp=20og=20gj=C3=B8r=20nettsiden=20mer?=
+ =?UTF-8?q?=20konsekvent?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+- Felles <head> med lang="no", "BiB - ..."-titler og Inter-font fra styles.css
+- Om oss, Oppussing og Partnere bruker samme oppsett som Kontakt og Quiz
+- Medlemssidene bruker samme portefølje-mal, og footeren får riktig klasse
+- Retter ugyldig HTML/CSS, skrivefeil og navnet Henrik på kontaktsiden
+- Gir hernik_waulen.html og JesperOlsen.html konsekvente filnavn
+- Fjerner ubrukte stilark, CSS-regler og variabler
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HN6SJDLJASYj8h2MWTeu9j
+---
+ BRH-1.html                                    | 101 +++++-----
+ BRH-5.html                                    |  10 +-
+ Oppussing.html                                | 179 ++++++++---------
+ gruppe_14/henrik_waulen/henrik_waulen.html    |  51 +++++
+ gruppe_14/henrik_waulen/hernik_waulen.html    |  82 --------
+ gruppe_14/jesper_olsen/JesperOlsen.html       |  49 -----
+ gruppe_14/jesper_olsen/jesper_olsen.html      |  44 +++++
+ gruppe_14/jesper_olsen/style.css              |   0
+ .../john-arne_hestenes.html                   |  42 ++--
+ .../kristoffer_helvik/kristoffer_helvik.html  | 152 +++++++-------
+ .../mikkel_bergmann/mikkel_bergmann.html      | 138 ++++++-------
+ gruppe_14/mikkel_bergmann/style.css           | 167 ----------------
+ gruppe_14/oliver_sund/oliver_sund.html        |  83 ++++++--
+ gruppe_14/stian_haveland/stian_haveland.html  |   3 +-
+ index.html                                    |  24 +--
+ kontakt.html                                  |  53 ++---
+ om_oss.html                                   |  66 +++----
+ partnere.html                                 | 185 ++++++++----------
+ styles.css                                    | 170 ++++++++--------
+ 19 files changed, 669 insertions(+), 930 deletions(-)
+ create mode 100644 gruppe_14/henrik_waulen/henrik_waulen.html
+ delete mode 100644 gruppe_14/henrik_waulen/hernik_waulen.html
+ delete mode 100644 gruppe_14/jesper_olsen/JesperOlsen.html
+ create mode 100644 gruppe_14/jesper_olsen/jesper_olsen.html
+ delete mode 100644 gruppe_14/jesper_olsen/style.css
+ delete mode 100644 gruppe_14/mikkel_bergmann/style.css
+
+diff --git a/BRH-1.html b/BRH-1.html
+index dc65530..7616009 100644
+--- a/BRH-1.html
++++ b/BRH-1.html
+@@ -1,48 +1,53 @@
+-<!doctype html>
+-
+-<html>
+-  <body>
+-    <style>
+-      table {
+-        background-color: rgb(240, 235, 225);
+-      }
+-    </style>
+-    <table align="center" border="40" width="400px" height="160px">
+-      <tr>
+-        <th style="font-size: 44px">
+-          <u
+-            ><b
+-              ><mark style="background-color: rgb(200, 176, 129)"
+-                >Om bedriften</mark
+-              ></b
+-            ></u
+-          >
+-        </th>
+-      </tr>
+-    </table>
+-    <style>
+-      table {
+-        margin-bottom: 40px;
+-      }
+-    </style>
+-    <table border="2">
+-      <tr></tr>
+-      <th>Hvor er vi</th>
+-      <th width="350">
+-        Kontorene våre finner du på
+-        <a
+-          href="https://www.google.com/maps/place/Torgallmenningen+1,+5012+Bergen/@60.3940977,5.324814,372m/data=!3m2!1e3!4b1!4m6!3m5!1s0x463cfea80ea67b0b:0xa99654fb1449736b!8m2!3d60.3940977!4d5.324814!16s%2Fg%2F11vfb43ywl?entry=ttu&g_ep=EgoyMDI2MDkxNS4wIKXMDSoASAFQAw%3D%3D"
+-          title="Google maps"
+-          target="blank"
+-          >Torgallmenningen 1</a
+-        >
+-      </th>
+-      <tr></tr>
+-      <th width="210">Skal du pusse opp?</th>
+-      <th><a href="Oppussing.html"> Trykk her</a></th>
+-      <tr></tr>
+-      <th>Epost</th>
+-      <th><a href="mailto:info@boligi Bergen.no">info@boligi Bergen.no</a></th>
+-    </table>
+-  </body>
+-</html>
++<!doctype html>
++<html lang="no">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>BiB - Om bedriften</title>
++    <style>
++      table {
++        margin-bottom: 40px;
++        background-color: rgb(240, 235, 225);
++      }
++    </style>
++  </head>
++
++  <body>
++    <table align="center" border="40" width="400px" height="160px">
++      <tr>
++        <th style="font-size: 44px">
++          <u
++            ><b
++              ><mark style="background-color: rgb(200, 176, 129)"
++                >Om bedriften</mark
++              ></b
++            ></u
++          >
++        </th>
++      </tr>
++    </table>
++
++    <table border="2">
++      <tr>
++        <th>Hvor er vi</th>
++        <th width="350">
++          Kontorene våre finner du på
++          <a
++            href="https://www.google.com/maps/place/Torgallmenningen+1,+5012+Bergen/@60.3940977,5.324814,372m/data=!3m2!1e3!4b1!4m6!3m5!1s0x463cfea80ea67b0b:0xa99654fb1449736b!8m2!3d60.3940977!4d5.324814!16s%2Fg%2F11vfb43ywl?entry=ttu&g_ep=EgoyMDI2MDkxNS4wIKXMDSoASAFQAw%3D%3D"
++            title="Google maps"
++            target="_blank"
++            >Torgallmenningen 1</a
++          >
++        </th>
++      </tr>
++      <tr>
++        <th width="210">Skal du pusse opp?</th>
++        <th><a href="Oppussing.html">Trykk her</a></th>
++      </tr>
++      <tr>
++        <th>E-post</th>
++        <th><a href="mailto:info@boligibergen.no">info@boligibergen.no</a></th>
++      </tr>
++    </table>
++  </body>
++</html>
+diff --git a/BRH-5.html b/BRH-5.html
+index 3721b3d..7162cbe 100644
+--- a/BRH-5.html
++++ b/BRH-5.html
+@@ -3,7 +3,7 @@
+   <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-    <title>Finn din boligtype</title>
++    <title>BiB - Quiz</title>
+     <link rel="stylesheet" href="styles.css" />
+   </head>
+ 
+@@ -23,8 +23,8 @@
+       </nav>
+     </div>
+ 
+-    <main class="boligtype-page">
+-      <section class="quiz">
++    <main>
++      <section class="quiz card">
+         <h1>Hvilken bolig passer deg?</h1>
+ 
+         <p id="question"></p>
+@@ -32,14 +32,14 @@
+         <div id="answers"></div>
+       </section>
+ 
+-      <section id="result" class="result">
++      <section id="result" class="card">
+         <h2>Din boligtype er:</h2>
+ 
+         <h3 id="resultTitle"></h3>
+ 
+         <p id="resultText"></p>
+ 
+-        <button onclick="restartQuiz()">Ta quizen på nytt</button>
++        <button type="button" onclick="restartQuiz()">Ta quizen på nytt</button>
+       </section>
+     </main>
+ 
+diff --git a/Oppussing.html b/Oppussing.html
+index 2a7ba8d..b9c3490 100644
+--- a/Oppussing.html
++++ b/Oppussing.html
+@@ -1,96 +1,83 @@
+-<!doctype html>
+-<html>
+-  <head>
+-    <meta charset="UTF-8" />
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-    <!-- Link CSS style sheet -->
+-    <link rel="stylesheet" href="styles.css" />
+-    <!-- Google's Inter Font-->
+-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+-    <link
+-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+-      rel="stylesheet"
+-    />
+-    <!-- Tablist title -->
+-    <title>Oppussing</title>
+-  </head>
+-
+-  <body>
+-    <!-- Navbar -->
+-    <div class="fixTop">
+-      <nav class="navbar">
+-        <div class="navLogo">
+-          <a href="./index.html">BiB</a>
+-        </div>
+-
+-        <div class="navItems">
+-          <a href="./kontakt.html" class="navItem">Kontakt oss</a>
+-          <a href="./Oppussing.html" class="navItem">Oppussing</a>
+-          <a href="./om_oss.html" class="navItem">Om oss</a>
+-          <a href="./BRH-5.html" class="navItem">Quiz</a>
+-        </div>
+-      </nav>
+-    </div>
+-
+-    <h2 align="center"><u>Planlegger du oppussing? </u></h2>
+-    <p>
+-      <br />Her hos bib has vi masse erfaring med oppussing <br />
+-      vi har mange partnere i industir, og handler du her får du gode tilbud
+-      <br />
+-      er du interresert i å vite mer om dette, kan du
+-      <a href="partnere.html">trykke her</a>
+-    </p>
+-
+-    <h3>Oppussing av bad</h3>
+-    <p>
+-      Bad er blant de mest krevende rommene å pusse opp.<br />
+-      Membran må legges etter våtromsnormen, og rørarbeid skal utføres av
+-      godkjent rørlegger.<br />
+-      Regn med rundt tre uker for et bad på fem kvadratmeter.<br />
+-    </p>
+-
+-    <h3>Fornyelse av kjøkken</h3>
+-    <p>
+-      Full riving er sjelden nødvendig.<br />
+-      Nye fronter, benkeplate og armatur gir ofte et helt nytt uttrykk til en
+-      brøkdel av prisen.<br />
+-      Skal vegger flyttes eller planløsningen endres, bør det tegnes opp
+-      først.<br />
+-    </p>
+-
+-    <h3>Legging av parkett</h3>
+-    <p>
+-      Eik, ask og valnøtt er de vanligste treslagene, i stavparkett eller brede
+-      planker.<br />
+-      Undergulvet må være tørt før leggingen starter,<br />
+-      og materialene bør klimatiseres i rommet noen dager på forhånd.
+-    </p>
+-
+-    <h3>Skifte av vinduer</h3>
+-    <p>
+-      Gamle vinduer er den vanligste kilden til varmetap i eldre boliger.
+-      <br />
+-      Nye vinduer bør tilpasses husets stil og alder, ikke bare
+-      isolasjonsverdien. <br />
+-      Utskifting krever ofte at karmverket fjernes i sin helhet.<br />
+-    </p>
+-
+-    <h3>Maling</h3>
+-    <p>
+-      Forarbeidet avgjør resultatet. Sparkling,<br />
+-      sliping og grunning gir en jevn flate som holder seg over tid.<br />
+-      Utvendig må kledningen vaskes først, og malingstypen velges etter
+-      underlaget.<br />
+-      Farger ser sjelden like ut i butikken som hjemme i eget lys.<br />
+-    </p>
+-
+-    <footer class="footer">
+-      <p>Bolig i Bergen AS</p>
+-      <p>Org.nr: 123 456 789</p>
+-      <p>Adresse: Torgallmenningen 1, 5012 Bergen</p>
+-      <p>Telefon: +47 55 55 55 55</p>
+-      <p>E-post: info@boligibergen.no</p>
+-    </footer>
+-  </body>
+-</html>
++<!doctype html>
++<html lang="no">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>BiB - Oppussing</title>
++    <link rel="stylesheet" href="styles.css" />
++  </head>
++
++  <body>
++    <div class="fixTop">
++      <nav class="navbar">
++        <div class="navLogo">
++          <a href="./index.html">BiB</a>
++        </div>
++
++        <div class="navItems">
++          <a href="./kontakt.html" class="navItem">Kontakt oss</a>
++          <a href="./Oppussing.html" class="navItem">Oppussing</a>
++          <a href="./om_oss.html" class="navItem">Om oss</a>
++          <a href="./BRH-5.html" class="navItem">Quiz</a>
++        </div>
++      </nav>
++    </div>
++
++    <main class="page">
++      <h1 class="page-title">Planlegger du oppussing?</h1>
++
++      <section class="card">
++        <p>
++          Her hos BiB har vi mye erfaring med oppussing. Vi har mange partnere i
++          bransjen, og handler du hos oss får du gode tilbud.
++          <a href="partnere.html">Se våre partnere</a>
++        </p>
++
++        <h2>Oppussing av bad</h2>
++        <p>
++          Bad er blant de mest krevende rommene å pusse opp. Membran må legges
++          etter våtromsnormen, og rørarbeid skal utføres av godkjent rørlegger.
++          Regn med rundt tre uker for et bad på fem kvadratmeter.
++        </p>
++
++        <h2>Fornyelse av kjøkken</h2>
++        <p>
++          Full riving er sjelden nødvendig. Nye fronter, benkeplate og armatur
++          gir ofte et helt nytt uttrykk til en brøkdel av prisen. Skal vegger
++          flyttes eller planløsningen endres, bør det tegnes opp først.
++        </p>
++
++        <h2>Legging av parkett</h2>
++        <p>
++          Eik, ask og valnøtt er de vanligste treslagene, i stavparkett eller
++          brede planker. Undergulvet må være tørt før leggingen starter, og
++          materialene bør klimatiseres i rommet noen dager på forhånd.
++        </p>
++
++        <h2>Skifte av vinduer</h2>
++        <p>
++          Gamle vinduer er den vanligste kilden til varmetap i eldre boliger.
++          Nye vinduer bør tilpasses husets stil og alder, ikke bare
++          isolasjonsverdien. Utskifting krever ofte at karmverket fjernes i sin
++          helhet.
++        </p>
++
++        <h2>Maling</h2>
++        <p>
++          Forarbeidet avgjør resultatet. Sparkling, sliping og grunning gir en
++          jevn flate som holder seg over tid. Utvendig må kledningen vaskes
++          først, og malingstypen velges etter underlaget. Farger ser sjelden
++          like ut i butikken som hjemme i eget lys.
++        </p>
++      </section>
++    </main>
++
++    <footer class="footer">
++      <p>Bolig i Bergen AS</p>
++      <p>Org.nr: 123 456 789</p>
++      <p>Adresse: Torgallmenningen 1, 5012 Bergen</p>
++      <p>Telefon: +47 55 55 55 55</p>
++      <p>E-post: info@boligibergen.no</p>
++    </footer>
++  </body>
++</html>
+diff --git a/gruppe_14/henrik_waulen/henrik_waulen.html b/gruppe_14/henrik_waulen/henrik_waulen.html
+new file mode 100644
+index 0000000..4993fe9
+--- /dev/null
++++ b/gruppe_14/henrik_waulen/henrik_waulen.html
+@@ -0,0 +1,51 @@
++<!doctype html>
++<html lang="no">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>BiB - Henrik Waulen</title>
++    <link rel="stylesheet" href="../../styles.css" />
++  </head>
++
++  <body class="portfolio">
++    <div class="portfolio-page">
++      <div class="portfolio-container">
++        <header class="portfolio-header">
++          <a href="../../kontakt.html" class="portfolio-back">← Tilbake</a>
++        </header>
++
++        <main>
++          <section class="portfolio-hero">
++            <h1 class="portfolio-title">Henrik Waulen</h1>
++            <p class="portfolio-subtitle">Bolig i Bergen</p>
++          </section>
++
++          <section class="portfolio-image-section">
++            <img class="portfolio-image" src="henrik-bilde.jpg" alt="Henrik Waulen" />
++          </section>
++
++          <section class="portfolio-content">
++            <div class="portfolio-content-label">Om meg</div>
++
++            <div class="portfolio-description">
++              <p>
++                Salgskonsulent for BiB. Kontaktinfo: e-post bib@bib.no, tlf.
++                11116666.
++              </p>
++
++              <p>
++                Lurer du på noe innen oppussing, leveranse eller kjøp, ta
++                kontakt.
++              </p>
++            </div>
++          </section>
++        </main>
++
++        <footer class="portfolio-footer">
++          <span>Henrik Waulen</span>
++          <span>2002</span>
++        </footer>
++      </div>
++    </div>
++  </body>
++</html>
+diff --git a/gruppe_14/henrik_waulen/hernik_waulen.html b/gruppe_14/henrik_waulen/hernik_waulen.html
+deleted file mode 100644
+index ee55399..0000000
+--- a/gruppe_14/henrik_waulen/hernik_waulen.html
++++ /dev/null
+@@ -1,82 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="no">
+-<head>
+-    <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-
+-    <title>[Prosjektnavn]</title>
+-
+-    <link rel="stylesheet" href="../../styles.css">
+-</head>
+-
+-<body class="portfolio">
+-
+-    <div class="portfolio-page">
+-
+-        <div class="portfolio-container">
+-
+-            <header class="portfolio-header">
+-                <a href="../../index.html" class="portfolio-back">
+-                    ← Tilbake
+-                </a>
+-            </header>
+-
+-
+-            <main class="portfolio-main">
+-
+-                <section class="portfolio-hero">
+-                    <h1 class="portfolio-title">
+-                        Henrik b Waulen
+-                    </h1>
+-
+-                    <p class="portfolio-subtitle">
+-                        Bolig i Bergen
+-                    </p>
+-                </section>
+-
+-
+-                <section class="portfolio-image-section">
+-                    <img
+-                        class="portfolio-image"
+-                        src="./henrik-bilde.jpg"
+-                        alt="[Hei]"
+-                    >
+-                </section>
+-
+-
+-                <section class="portfolio-content">
+-
+-                    <div class="portfolio-content-label">
+-                        Om prosjektet
+-                    </div>
+-
+-                    <div class="portfolio-description">
+-
+-                        <p>
+-                           Salsgkonsulent for BIB. Kontaktinfo :
+-                           email- bib@bib.no
+-                           tlf- 11116666
+-                        </p>
+-
+-                        <p>
+-                            Lurer du på noe innen oppussing, leveranse eller kjøp, ta kontakt.
+-                        </p>
+-
+-                    </div>
+-
+-                </section>
+-
+-            </main>
+-
+-
+-            <footer id="portfolio-footer">
+-                <span>Henrik Waulen</span>
+-                <span>2002</span>
+-            </footer>
+-
+-        </div>
+-
+-    </div>
+-
+-</body>
+-</html>
+\ No newline at end of file
+diff --git a/gruppe_14/jesper_olsen/JesperOlsen.html b/gruppe_14/jesper_olsen/JesperOlsen.html
+deleted file mode 100644
+index b422130..0000000
+--- a/gruppe_14/jesper_olsen/JesperOlsen.html
++++ /dev/null
+@@ -1,49 +0,0 @@
+-<!DOCTYPE html>
+-<html>
+-<head>
+-<style>
+-body {
+-  background-color: #eef2f7;
+-  font-family: Arial, sans-serif;
+-}
+-
+-h1 {
+-   color: black;
+-}
+-
+-
+-.navn-container {
+-  display: grid;
+-  grid-template-columns: 1fr 1fr; 
+-  gap: 16px 20px;
+-  max-width: 800px;
+-}
+-
+-
+-.navn-brikke {
+-  background-color: #ffffff;
+-  color: #333;
+-  padding: 16px 20px;
+-  border-left: 5px solid #4CAF50;
+-  border-radius: 4px;
+-  font-size: 15px;
+-  font-weight: 500;
+-  cursor: pointer; 
+-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+-}
+-
+-</style>
+-</head>
+-<body>
+-
+-<h1>Jesper Olsen - Prosjektmedlem</h1>
+-<!-- Finne ut hvordan vi skal legge til bilder -->
+-<!-- <img src="BILDE" -->
+-
+-<div class="navn-container">
+-  <a class="navn-brikke">Tlf: 090 909 090</a>
+-  <a class="navn-brikke">Email: minemail@hvl.no</a>
+-</div>
+-<p> Her skal det ligge et bilde, men ikke putte det ut på Github </p>
+-</body>
+-</html>
+diff --git a/gruppe_14/jesper_olsen/jesper_olsen.html b/gruppe_14/jesper_olsen/jesper_olsen.html
+new file mode 100644
+index 0000000..8dad746
+--- /dev/null
++++ b/gruppe_14/jesper_olsen/jesper_olsen.html
+@@ -0,0 +1,44 @@
++<!doctype html>
++<html lang="no">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>BiB - Jesper Olsen</title>
++    <link rel="stylesheet" href="../../styles.css" />
++  </head>
++
++  <body class="portfolio">
++    <div class="portfolio-page">
++      <div class="portfolio-container">
++        <header class="portfolio-header">
++          <a href="../../kontakt.html" class="portfolio-back">← Tilbake</a>
++        </header>
++
++        <main>
++          <section class="portfolio-hero">
++            <h1 class="portfolio-title">Jesper Olsen</h1>
++            <p class="portfolio-subtitle">Bolig i Bergen</p>
++          </section>
++
++          <section class="portfolio-content">
++            <div class="portfolio-content-label">Kontakt</div>
++
++            <div class="portfolio-description">
++              <p>
++                Telefon: 090 909 090
++              </p>
++
++              <p>
++                E-post: minemail@hvl.no
++              </p>
++            </div>
++          </section>
++        </main>
++
++        <footer class="portfolio-footer">
++          <span>Jesper Olsen</span>
++        </footer>
++      </div>
++    </div>
++  </body>
++</html>
+diff --git a/gruppe_14/jesper_olsen/style.css b/gruppe_14/jesper_olsen/style.css
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/gruppe_14/john-arne_hestenes/john-arne_hestenes.html b/gruppe_14/john-arne_hestenes/john-arne_hestenes.html
+index dc6fdac..7a4b902 100644
+--- a/gruppe_14/john-arne_hestenes/john-arne_hestenes.html
++++ b/gruppe_14/john-arne_hestenes/john-arne_hestenes.html
+@@ -1,12 +1,30 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <link rel="stylesheet" href="../../styles.css">
+-    <title>Document</title>
+-</head>
+-<body>
+-    
+-</body>
+-</html>
+\ No newline at end of file
++<!doctype html>
++<html lang="no">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>BiB - John-Arne Hestenes</title>
++    <link rel="stylesheet" href="../../styles.css" />
++  </head>
++
++  <body class="portfolio">
++    <div class="portfolio-page">
++      <div class="portfolio-container">
++        <header class="portfolio-header">
++          <a href="../../kontakt.html" class="portfolio-back">← Tilbake</a>
++        </header>
++
++        <main>
++          <section class="portfolio-hero">
++            <h1 class="portfolio-title">John-Arne Hestenes</h1>
++            <p class="portfolio-subtitle">Bolig i Bergen</p>
++          </section>
++        </main>
++
++        <footer class="portfolio-footer">
++          <span>John-Arne Hestenes</span>
++        </footer>
++      </div>
++    </div>
++  </body>
++</html>
+diff --git a/gruppe_14/kristoffer_helvik/kristoffer_helvik.html b/gruppe_14/kristoffer_helvik/kristoffer_helvik.html
+index af83c65..aad55dd 100644
+--- a/gruppe_14/kristoffer_helvik/kristoffer_helvik.html
++++ b/gruppe_14/kristoffer_helvik/kristoffer_helvik.html
+@@ -1,84 +1,74 @@
+-<!DOCTYPE html>
++<!doctype html>
+ <html lang="no">
+-<head>
+-    <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-
+-    <title>[Prosjektnavn]</title>
+-
+-    <link rel="stylesheet" href="../../styles.css">
+-</head>
+-
+-<body class="portfolio">
+-
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>BiB - Kristoffer Helvik</title>
++    <link rel="stylesheet" href="../../styles.css" />
++  </head>
++
++  <body class="portfolio">
+     <div class="portfolio-page">
+-
+-        <div class="portfolio-container">
+-
+-            <header class="portfolio-header">
+-                <a href="../../index.html" class="portfolio-back">
+-                    ← Tilbake
+-                </a>
+-            </header>
+-
+-
+-            <main class="portfolio-main">
+-
+-                <section class="portfolio-hero">
+-                    <h1 class="portfolio-title">
+-                        Kristoffer Helvik
+-                    </h1>
+-
+-                    <p class="portfolio-subtitle">
+-                        Bolig i Bergen
+-                    </p>
+-                </section>
+-
+-
+-                <section class="portfolio-image-section">
+-                    <img
+-                        class="portfolio-image"
+-                        src="./img/profile-img.png"
+-                        alt="[Beskrivelse av bildet]"
+-                    >
+-                </section>
+-
+-
+-                <section class="portfolio-content">
+-
+-                    <div class="portfolio-content-label">
+-                        Om prosjektet
+-                    </div>
+-
+-                    <div class="portfolio-description">
+-
+-                        <p>
+-                        Det å jobbe med boligprosjektet i Bergen gir en ordentlig god driv. Det treffer midt i blinken for meg som er opptatt av byutvikling og har et sterkt forhold til Vestlandshovedstaden. Bergen har en spesiell kombinasjon av trange smug, sjøluft og fjell, og boligmarkedet her krever gode, nye ideer. Målet er å skape gode, trygge og levende nærmiljøer der folk faktisk trives og ønsker å slå seg til ro over tid.
+-                        </p>
+-
+-                        <p>
+-                        I denne rollen føler jeg meg tett på hele prosessen fra start til slutt. Bakgrunnen min fra strukturert kundeservice, operativ drift og logistikk gir meg et solid utgangspunkt for å håndtere alt det praktiske og organisatoriske som dukker opp underveis. Jeg er vant til å ta i et tak og holde hodet kaldt når det koker. Samtidig tar jeg med meg en god porsjon struktur fra studier innen dataingeniørfaget, noe som gjør at jeg liker å ha orden i systemene og jobbe effektivt med komplekse problemstillinger.
+-                        </p>
+-
+-                        <p>
+-                        Jeg trives med å holde i trådene, samarbeide på tvers av ulike fagfelt og sørge for at fremdriften flyter som den skal. Enten det gjelder å planlegge den daglige driften, følge opp leveranser eller sørge for at kundene blir ivaretatt på en god måte, så er dette oppgaver som faller naturlig. Det er skikkelig gøy å se at det vi planlegger faktisk blir til virkelighet, og at vi er med på å heve boligstandarden her i byen.
+-                        </p>
+-
+-                    </div>
+-
+-                </section>
+-
+-            </main>
+-
+-
+-            <footer id="portfolio-footer">
+-                <span>Kristoffer Helvik</span>
+-                <span>1985</span>
+-            </footer>
+-
+-        </div>
+-
++      <div class="portfolio-container">
++        <header class="portfolio-header">
++          <a href="../../kontakt.html" class="portfolio-back">← Tilbake</a>
++        </header>
++
++        <main>
++          <section class="portfolio-hero">
++            <h1 class="portfolio-title">Kristoffer Helvik</h1>
++            <p class="portfolio-subtitle">Bolig i Bergen</p>
++          </section>
++
++          <section class="portfolio-image-section">
++            <img class="portfolio-image" src="img/profile-img.png" alt="Kristoffer Helvik" />
++          </section>
++
++          <section class="portfolio-content">
++            <div class="portfolio-content-label">Om prosjektet</div>
++
++            <div class="portfolio-description">
++              <p>
++                Det å jobbe med boligprosjektet i Bergen gir en ordentlig god
++                driv. Det treffer midt i blinken for meg som er opptatt av
++                byutvikling og har et sterkt forhold til Vestlandshovedstaden.
++                Bergen har en spesiell kombinasjon av trange smug, sjøluft og
++                fjell, og boligmarkedet her krever gode, nye ideer. Målet er å
++                skape gode, trygge og levende nærmiljøer der folk faktisk
++                trives og ønsker å slå seg til ro over tid.
++              </p>
++
++              <p>
++                I denne rollen føler jeg meg tett på hele prosessen fra start
++                til slutt. Bakgrunnen min fra strukturert kundeservice,
++                operativ drift og logistikk gir meg et solid utgangspunkt for
++                å håndtere alt det praktiske og organisatoriske som dukker opp
++                underveis. Jeg er vant til å ta i et tak og holde hodet kaldt
++                når det koker. Samtidig tar jeg med meg en god porsjon
++                struktur fra studier innen dataingeniørfaget, noe som gjør at
++                jeg liker å ha orden i systemene og jobbe effektivt med
++                komplekse problemstillinger.
++              </p>
++
++              <p>
++                Jeg trives med å holde i trådene, samarbeide på tvers av ulike
++                fagfelt og sørge for at fremdriften flyter som den skal. Enten
++                det gjelder å planlegge den daglige driften, følge opp
++                leveranser eller sørge for at kundene blir ivaretatt på en god
++                måte, så er dette oppgaver som faller naturlig. Det er
++                skikkelig gøy å se at det vi planlegger faktisk blir til
++                virkelighet, og at vi er med på å heve boligstandarden her i
++                byen.
++              </p>
++            </div>
++          </section>
++        </main>
++
++        <footer class="portfolio-footer">
++          <span>Kristoffer Helvik</span>
++          <span>1985</span>
++        </footer>
++      </div>
+     </div>
+-
+-</body>
+-</html>
+\ No newline at end of file
++  </body>
++</html>
+diff --git a/gruppe_14/mikkel_bergmann/mikkel_bergmann.html b/gruppe_14/mikkel_bergmann/mikkel_bergmann.html
+index cd97d15..579f25e 100644
+--- a/gruppe_14/mikkel_bergmann/mikkel_bergmann.html
++++ b/gruppe_14/mikkel_bergmann/mikkel_bergmann.html
+@@ -1,86 +1,58 @@
+-<!DOCTYPE html>
++<!doctype html>
+ <html lang="no">
+-<head>
+-    <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-
+-    <title>[Prosjektnavn]</title>
+-
+-    <link rel="stylesheet" href="../../styles.css">
+-</head>
+-
+-<body class="portfolio">
+-
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>BiB - Mikkel Bergmann</title>
++    <link rel="stylesheet" href="../../styles.css" />
++  </head>
++
++  <body class="portfolio">
+     <div class="portfolio-page">
+-
+-        <div class="portfolio-container">
+-
+-            <header class="portfolio-header">
+-                <a href="../../index.html" class="portfolio-back">
+-                    ← Tilbake
+-                </a>
+-            </header>
+-
+-
+-            <main class="portfolio-main">
+-
+-                <section class="portfolio-hero">
+-                    <h1 class="portfolio-title">
+-                        Mikkel Bergmann
+-                    </h1>
+-
+-                    <p class="portfolio-subtitle">
+-                        Bolig i Bergen
+-                    </p>
+-                </section>
+-
+-
+-                <section class="portfolio-image-section">
+-                    <img
+-                        class="portfolio-image"
+-                        src="./img/profile-img.png"
+-                        alt="[Beskrivelse av bildet]"
+-                    >
+-                </section>
+-
+-
+-                <section class="portfolio-content">
+-
+-                    <div class="portfolio-content-label">
+-                        Om prosjektet
+-                    </div>
+-
+-                    <div class="portfolio-description">
+-
+-                        <p>
+-                            Et fiktivt webdesign-prosjekt for et moderne boligselskap i Bergen. 
+-                            Målet var å utvikle en enkel og brukervennlig nettside som presenterer 
+-                            boliger på en oversiktlig og visuelt attraktiv måte.
+-
+-                            Jeg jobbet med struktur, visuell identitet og brukeropplevelse, 
+-                            med fokus på et rent og moderne uttrykk.
+-                        </p>
+-
+-                        <p>
+-                            Resultatet ble en responsiv nettside med fokus på enkel navigasjon. 
+-                            Designet er laget for å fungere godt på desktop.
+-                        </p>
+-
+-                    </div>
+-
+-                </section>
+-
+-            </main>
+-
+-
+-            <footer id="portfolio-footer">
+-                <span>Mikkel Bergmann</span>
+-                <span>2005</span>
+-            </footer>
+-
+-        </div>
+-
++      <div class="portfolio-container">
++        <header class="portfolio-header">
++          <a href="../../kontakt.html" class="portfolio-back">← Tilbake</a>
++        </header>
++
++        <main>
++          <section class="portfolio-hero">
++            <h1 class="portfolio-title">Mikkel Bergmann</h1>
++            <p class="portfolio-subtitle">Bolig i Bergen</p>
++          </section>
++
++          <section class="portfolio-image-section">
++            <img class="portfolio-image" src="img/profile-img.png" alt="Mikkel Bergmann" />
++          </section>
++
++          <section class="portfolio-content">
++            <div class="portfolio-content-label">Om prosjektet</div>
++
++            <div class="portfolio-description">
++              <p>
++                Et fiktivt webdesign-prosjekt for et moderne boligselskap i
++                Bergen. Målet var å utvikle en enkel og brukervennlig nettside
++                som presenterer boliger på en oversiktlig og visuelt attraktiv
++                måte.
++              </p>
++
++              <p>
++                Jeg jobbet med struktur, visuell identitet og
++                brukeropplevelse, med fokus på et rent og moderne uttrykk.
++              </p>
++
++              <p>
++                Resultatet ble en responsiv nettside med fokus på enkel
++                navigasjon. Designet er laget for å fungere godt på desktop.
++              </p>
++            </div>
++          </section>
++        </main>
++
++        <footer class="portfolio-footer">
++          <span>Mikkel Bergmann</span>
++          <span>2005</span>
++        </footer>
++      </div>
+     </div>
+-
+-</body>
+-</html>
+\ No newline at end of file
++  </body>
++</html>
+diff --git a/gruppe_14/mikkel_bergmann/style.css b/gruppe_14/mikkel_bergmann/style.css
+deleted file mode 100644
+index 9da5f27..0000000
+--- a/gruppe_14/mikkel_bergmann/style.css
++++ /dev/null
+@@ -1,167 +0,0 @@
+-/* Layout */
+-
+-.container {
+-    max-width: 1100px;
+-    margin: 0 auto;
+-    padding: 40px 30px 60px;
+-}
+-
+-
+-/* Header */
+-
+-header {
+-    margin-bottom: 100px;
+-}
+-
+-.back-button {
+-    display: inline-block;
+-
+-    color: #1c1c1c;
+-    text-decoration: none;
+-
+-    font-size: 14px;
+-
+-    transition: opacity 0.2s ease;
+-}
+-
+-.back-button:hover {
+-    opacity: 0.5;
+-}
+-
+-
+-/* Hero */
+-
+-.hero {
+-    margin-bottom: 80px;
+-}
+-
+-.hero h1 {
+-    font-size: clamp(50px, 8vw, 100px);
+-    line-height: 0.95;
+-
+-    letter-spacing: -4px;
+-
+-    max-width: 900px;
+-}
+-
+-.hero p {
+-    margin-top: 25px;
+-
+-    font-size: 18px;
+-    color: #666;
+-}
+-
+-
+-/* Image */
+-
+-.project-image {
+-    width: 100%;
+-    margin-bottom: 80px;
+-}
+-
+-.project-image img {
+-    display: block;
+-
+-    width: 100%;
+-    height: 550px;
+-
+-    object-fit: cover;
+-
+-    border-radius: 12px;
+-}
+-
+-
+-/* Content */
+-
+-.content {
+-    display: grid;
+-
+-    grid-template-columns: 1fr 2fr;
+-
+-    gap: 80px;
+-}
+-
+-.content-label {
+-    font-size: 13px;
+-
+-    text-transform: uppercase;
+-    letter-spacing: 1px;
+-
+-    color: #888;
+-}
+-
+-.description {
+-    font-size: 18px;
+-    line-height: 1.7;
+-}
+-
+-.description p {
+-    margin-bottom: 25px;
+-}
+-
+-
+-/* Footer */
+-
+-footer {
+-    display: flex;
+-    justify-content: space-between;
+-
+-    margin-top: 120px;
+-    padding-top: 25px;
+-
+-    border-top: 1px solid #ddd;
+-
+-    color: #777;
+-    font-size: 13px;
+-}
+-
+-
+-/* Mobile */
+-
+-@media (max-width: 700px) {
+-
+-    .container {
+-        padding: 30px 20px;
+-    }
+-
+-
+-    /* Header */
+-
+-    header {
+-        margin-bottom: 70px;
+-    }
+-
+-
+-    /* Hero */
+-
+-    .hero h1 {
+-        letter-spacing: -2px;
+-    }
+-
+-
+-    /* Image */
+-
+-    .project-image {
+-        margin-bottom: 50px;
+-    }
+-
+-    .project-image img {
+-        height: 350px;
+-    }
+-
+-
+-    /* Content */
+-
+-    .content {
+-        grid-template-columns: 1fr;
+-        gap: 20px;
+-    }
+-
+-
+-    /* Footer */
+-
+-    footer {
+-        flex-direction: column;
+-        gap: 10px;
+-    }
+-}
+\ No newline at end of file
+diff --git a/gruppe_14/oliver_sund/oliver_sund.html b/gruppe_14/oliver_sund/oliver_sund.html
+index 27088b1..342e814 100644
+--- a/gruppe_14/oliver_sund/oliver_sund.html
++++ b/gruppe_14/oliver_sund/oliver_sund.html
+@@ -1,20 +1,63 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <link rel="stylesheet" href="../../styles.css">
+-    <title>Document</title>
+-</head>
+-<body>
+-    <a href="../../index.html">Hjem</a>
+-<h1 class="oliver">Oliver Sund</h1>
+-<img class="oliverBilde" src="Oliver_bilde.jpg" alt="Meg">
+-<p1>her skal jeg skrive om hva som helst jeg vil. <br />derfor har jeg tenkt å skrive om ting som jeg har lyst å skrive om</p1>
+-<p2>Dette prosjektet er et skole prosjekt hvor vi 7 ble plassert inn i denne gruppen siden ingen av oss var med på orienteringen<br />
+-Prosjektet går ut på at vi skal lage ei nettside som handler om boliger i bergen, vi måtte gå gjennom brukerhistorier som sier hva som skal være på siden<br />
+-et av bruker historiene sier "Informasjon om oppussing. Som boligeier er det alltid aktuelt med oppussing. Lag informasjon som oppussing av bad,<br />
+-fornyelse kjøkken, legging av parkett. Skifte av vinduer. Lenker til oppussingsfirma?" Dette var den jeg tok hand om. Jeg tenkte det smarteste å gjøre <br />
+-var å lage en tabell med noen produkter fra nettsider som Kid og Plantasjen det fungerte ganske greit.-</p2>
+-</body>
+-</html>
+\ No newline at end of file
++<!doctype html>
++<html lang="no">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>BiB - Oliver Sund</title>
++    <link rel="stylesheet" href="../../styles.css" />
++  </head>
++
++  <body class="portfolio">
++    <div class="portfolio-page">
++      <div class="portfolio-container">
++        <header class="portfolio-header">
++          <a href="../../kontakt.html" class="portfolio-back">← Tilbake</a>
++        </header>
++
++        <main>
++          <section class="portfolio-hero">
++            <h1 class="portfolio-title">Oliver Sund</h1>
++            <p class="portfolio-subtitle">Bolig i Bergen</p>
++          </section>
++
++          <section class="portfolio-image-section">
++            <img class="portfolio-image" src="Oliver_bilde.jpg" alt="Oliver Sund" />
++          </section>
++
++          <section class="portfolio-content">
++            <div class="portfolio-content-label">Om prosjektet</div>
++
++            <div class="portfolio-description">
++              <p>
++                Her skal jeg skrive om hva som helst jeg vil. Derfor har jeg
++                tenkt å skrive om ting som jeg har lyst å skrive om.
++              </p>
++
++              <p>
++                Dette prosjektet er et skoleprosjekt hvor vi 7 ble plassert
++                inn i denne gruppen siden ingen av oss var med på
++                orienteringen. Prosjektet går ut på at vi skal lage ei
++                nettside som handler om boliger i Bergen. Vi måtte gå gjennom
++                brukerhistorier som sier hva som skal være på siden.
++              </p>
++
++              <p>
++                En av brukerhistoriene sier: "Informasjon om oppussing. Som
++                boligeier er det alltid aktuelt med oppussing. Lag informasjon
++                som oppussing av bad, fornyelse kjøkken, legging av parkett.
++                Skifte av vinduer. Lenker til oppussingsfirma?" Dette var den
++                jeg tok hånd om. Jeg tenkte det smarteste å gjøre var å lage
++                en tabell med noen produkter fra nettsider som Kid og
++                Plantasjen. Det fungerte ganske greit.
++              </p>
++            </div>
++          </section>
++        </main>
++
++        <footer class="portfolio-footer">
++          <span>Oliver Sund</span>
++        </footer>
++      </div>
++    </div>
++  </body>
++</html>
+diff --git a/gruppe_14/stian_haveland/stian_haveland.html b/gruppe_14/stian_haveland/stian_haveland.html
+index 5298bcb..851f2fd 100644
+--- a/gruppe_14/stian_haveland/stian_haveland.html
++++ b/gruppe_14/stian_haveland/stian_haveland.html
+@@ -5,9 +5,8 @@
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+-  <title>Stian Haveland</title>
++  <title>BiB - Stian Haveland</title>
+ 
+-  <!-- Use the project's shared CSS file -->
+   <link rel="stylesheet" href="../../styles.css" />
+ </head>
+ 
+diff --git a/index.html b/index.html
+index ef59a30..f5cb6e8 100644
+--- a/index.html
++++ b/index.html
+@@ -1,23 +1,13 @@
+ <!doctype html>
+-<html>
++<html lang="no">
+   <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-    <!-- Link CSS style sheet -->
+-    <link rel="stylesheet" href="styles.css" />
+-    <!-- Google's Inter Font-->
+-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+-    <link
+-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+-      rel="stylesheet"
+-    />
+-    <!-- Tablist title -->
+     <title>BiB</title>
++    <link rel="stylesheet" href="styles.css" />
+   </head>
+ 
+   <body>
+-    <!-- Navbar -->
+     <div class="fixTop">
+       <nav class="navbar">
+         <div class="navLogo">
+@@ -93,12 +83,12 @@
+       </div>
+     </div>
+ 
+-    <!-- Om BIB -->
++    <!-- Om BiB -->
+     <div class="about">
+       <h2>Om Bolig i Bergen AS</h2>
+ 
+       <p>
+-        Bolig i Bergen AS, også kalt BIB, er et informasjonstilbud for
++        Bolig i Bergen AS, også kalt BiB, er et informasjonstilbud for
+         boligeiere og innbyggere i Bergen. Vi ønsker å samle relevant
+         informasjon på ett sted slik at det blir enklere å finne ut hvordan man
+         kan ta vare på boligen sin.
+@@ -118,15 +108,15 @@
+ 
+       <iframe
+         class="map"
+-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1971.0955096759483!2d5.322239076694718!3d60.394100325341036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x463cfea80ea67b0b%3A0xa99654fb1449736b!2sTorgallmenningen%201%2C%205012%20Bergen!5e0!3m2!1sno!2sno!4v1791287164818!5m2!1sno!2sno" 
++        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1971.0955096759483!2d5.322239076694718!3d60.394100325341036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x463cfea80ea67b0b%3A0xa99654fb1449736b!2sTorgallmenningen%201%2C%205012%20Bergen!5e0!3m2!1sno!2sno!4v1791287164818!5m2!1sno!2sno"
+         width="600"
+         height="450"
+         style="border: 0"
+         allowfullscreen=""
+         loading="lazy"
+         referrerpolicy="strict-origin-when-cross-origin"
+-        title="Kart som viser hvor Bolig i Bergen holder til">
+-      </iframe>
++        title="Kart som viser hvor Bolig i Bergen holder til"
++      ></iframe>
+     </div>
+ 
+     <footer class="footer">
+diff --git a/kontakt.html b/kontakt.html
+index ecf5018..75fe0d2 100644
+--- a/kontakt.html
++++ b/kontakt.html
+@@ -1,24 +1,13 @@
+ <!doctype html>
+-<html>
++<html lang="no">
+   <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-
+-    <link rel="stylesheet" href="styles.css" />
+-
+-    <!-- Google's Inter Font -->
+-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+-    <link
+-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+-      rel="stylesheet"
+-    />
+-
+     <title>BiB - Kontakt oss</title>
++    <link rel="stylesheet" href="styles.css" />
+   </head>
+ 
+   <body>
+-    <!-- Navbar -->
+     <div class="fixTop">
+       <nav class="navbar">
+         <div class="navLogo">
+@@ -34,9 +23,8 @@
+       </nav>
+     </div>
+ 
+-    <!-- Kontaktinnhold -->
+     <main class="kontaktMain">
+-      <h1 class="kontaktTittel">Kontakt oss</h1>
++      <h1 class="page-title">Kontakt oss</h1>
+ 
+       <p class="kontaktInfo">
+         Dette er vår prosjektgruppe. Trykk på et navn for å lese mer om personen
+@@ -44,28 +32,21 @@
+       </p>
+ 
+       <div class="kontaktContainer">
+-        <a
+-          href="gruppe_14/stian_haveland/stian_haveland.html"
+-          class="kontaktBoks"
+-        >
++        <a href="gruppe_14/stian_haveland/stian_haveland.html" class="kontaktBoks">
+           <p class="kontaktNavn">Stian Haveland</p>
+ 
+           <div class="kontaktPortrett">
+-            <img src="./gruppe_14/stian_haveland/img/profile-img.jpg" />
++            <img src="gruppe_14/stian_haveland/img/profile-img.jpg" alt="Stian Haveland" />
+           </div>
+ 
+           <p class="kontaktRolle">Scrum Master</p>
+         </a>
+ 
+-        <a 
+-            href="gruppe_14/mikkel_bergmann/mikkel_bergmann.html" 
+-            class="kontaktBoks"
+-          >
+-
+-            <p class="kontaktNavn">Mikkel Bergmann</p>
++        <a href="gruppe_14/mikkel_bergmann/mikkel_bergmann.html" class="kontaktBoks">
++          <p class="kontaktNavn">Mikkel Bergmann</p>
+ 
+           <div class="kontaktPortrett">
+-            <img src="./gruppe_14/mikkel_bergmann/img/profile-img.png" />
++            <img src="gruppe_14/mikkel_bergmann/img/profile-img.png" alt="Mikkel Bergmann" />
+           </div>
+ 
+           <p class="kontaktRolle">Prosjektmedlem</p>
+@@ -75,13 +56,13 @@
+           <p class="kontaktNavn">Kristoffer Helvik</p>
+ 
+           <div class="kontaktPortrett">
+-            <img src="./gruppe_14/kristoffer_helvik/img/profile-img.png" />
++            <img src="gruppe_14/kristoffer_helvik/img/profile-img.png" alt="Kristoffer Helvik" />
+           </div>
+ 
+           <p class="kontaktRolle">Prosjektmedlem</p>
+         </a>
+ 
+-        <a href="gruppe_14/jesper_olsen/JesperOlsen.html" class="kontaktBoks">
++        <a href="gruppe_14/jesper_olsen/jesper_olsen.html" class="kontaktBoks">
+           <p class="kontaktNavn">Jesper Olsen</p>
+ 
+           <div class="kontaktPortrett">
+@@ -109,11 +90,11 @@
+           <p class="kontaktRolle">Prosjektmedlem</p>
+         </a>
+ 
+-        <a href="gruppe_14/henrik_waulen/hernik_waulen.html" class="kontaktBoks">
+-          <p class="kontaktNavn">Herik Waulen</p>
++        <a href="gruppe_14/henrik_waulen/henrik_waulen.html" class="kontaktBoks">
++          <p class="kontaktNavn">Henrik Waulen</p>
+ 
+           <div class="kontaktPortrett">
+-            <img src="./gruppe_14/henrik_waulen/henrik-bilde.jpg" />
++            <img src="gruppe_14/henrik_waulen/henrik-bilde.jpg" alt="Henrik Waulen" />
+           </div>
+ 
+           <p class="kontaktRolle">Prosjektmedlem</p>
+@@ -123,12 +104,7 @@
+           <p class="kontaktNavn">Oliver Sund</p>
+ 
+           <div class="kontaktPortrett">
+-            <img src="./gruppe_14/oliver_sund/Oliver_bilde.jpg">
+-            <svg viewBox="0 0 24 24" aria-hidden="true">
+-              <path
+-                d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.5-8 5.5V22h16v-2.5c0-3-3.6-5.5-8-5.5Z"
+-              />
+-            </svg>
++            <img src="gruppe_14/oliver_sund/Oliver_bilde.jpg" alt="Oliver Sund" />
+           </div>
+ 
+           <p class="kontaktRolle">Prosjektmedlem</p>
+@@ -143,6 +119,5 @@
+       <p>Telefon: +47 55 55 55 55</p>
+       <p>E-post: info@boligibergen.no</p>
+     </footer>
+-
+   </body>
+ </html>
+diff --git a/om_oss.html b/om_oss.html
+index da41488..362ef7a 100644
+--- a/om_oss.html
++++ b/om_oss.html
+@@ -1,23 +1,13 @@
+ <!doctype html>
+-<html lang="en">
++<html lang="no">
+   <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-    <!-- Link CSS style sheet -->
++    <title>BiB - Om oss</title>
+     <link rel="stylesheet" href="styles.css" />
+-    <!-- Google's Inter Font-->
+-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+-    <link
+-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+-      rel="stylesheet"
+-    />
+-    <!-- Tablist title -->
+-    <title>Om Oss</title>
+   </head>
+ 
+   <body>
+-    <!-- Navbar -->
+     <div class="fixTop">
+       <nav class="navbar">
+         <div class="navLogo">
+@@ -33,29 +23,40 @@
+       </nav>
+     </div>
+ 
+-<h1>Om oss</h1>
+-    <p1>I BIB vet vi hvor viktig det å finne den rette boligen kan vere.<br>
+-      Derfor har vi samlet alt du trenger på ett sted:<br>
+-       kjøp og salg, oppussing, materialer og god rådgivning underveis.<br><br></p1>
+-
+-       <h2>Hvem er vi</h2>
+-       <p1>BIB ble started i 1234 av 7 flittige håndtverkere<br>
+-      Vi kjenner bergen godt, og vet hva som kreves for å bygge ditt drøttmehus<br>
+-    Vi så at mange boligkjøpere og boligeiere måtte forholde seg til en lang rekke aktører: <br>
+-     megler, bank, takstmann, snekker, maler og byggevarehus.<br>
+-     Det ville vi gjøre enklere. <br>
+-      Hos oss får du én kontaktperson og et team som jobber sammen for at du skal lykkes.<br><br><br><br></p1>
+-
+-      <h2>Hvorfår velge BIB?</h2>
+-    <p1>Vi tror på åpenhet, ærlighet og godt håndverk.<br>
+-       Du skal alltid vite hva du betaler for,<br>
+-        hva som skjer videre og hvem du kan ringe når du har spørsmål.<br>
+-         Fordi vi dekker hele prosessen, slipper du å koordinere alt selv.<br>
+-          Dette lar deg spare både tid, penger og bekymringer.</p1>
+-
++    <main class="page">
++      <h1 class="page-title">Om oss</h1>
+ 
++      <section class="card">
++        <p>
++          I BiB vet vi hvor viktig det kan være å finne den rette boligen.
++          Derfor har vi samlet alt du trenger på ett sted: kjøp og salg,
++          oppussing, materialer og god rådgivning underveis.
++        </p>
+ 
++        <h2>Hvem er vi?</h2>
++        <p>
++          BiB ble startet i 1234 av 7 flittige håndverkere. Vi kjenner Bergen
++          godt, og vet hva som kreves for å bygge ditt drømmehus.
++        </p>
++        <p>
++          Vi så at mange boligkjøpere og boligeiere måtte forholde seg til en
++          lang rekke aktører: megler, bank, takstmann, snekker, maler og
++          byggevarehus. Det ville vi gjøre enklere. Hos oss får du én
++          kontaktperson og et team som jobber sammen for at du skal lykkes.
++        </p>
+ 
++        <h2>Hvorfor velge BiB?</h2>
++        <p>
++          Vi tror på åpenhet, ærlighet og godt håndverk. Du skal alltid vite hva
++          du betaler for, hva som skjer videre og hvem du kan ringe når du har
++          spørsmål.
++        </p>
++        <p>
++          Fordi vi dekker hele prosessen, slipper du å koordinere alt selv.
++          Dette lar deg spare både tid, penger og bekymringer.
++        </p>
++      </section>
++    </main>
+ 
+     <footer class="footer">
+       <p>Bolig i Bergen AS</p>
+@@ -64,6 +65,5 @@
+       <p>Telefon: +47 55 55 55 55</p>
+       <p>E-post: info@boligibergen.no</p>
+     </footer>
+-
+   </body>
+ </html>
+diff --git a/partnere.html b/partnere.html
+index 40b943a..8ad948a 100644
+--- a/partnere.html
++++ b/partnere.html
+@@ -1,22 +1,13 @@
+ <!doctype html>
+-<html>
++<html lang="no">
+   <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>BiB - Partnere</title>
+     <link rel="stylesheet" href="styles.css" />
+-    <title>Partnere</title>
+-
+-    <style>
+-      table,
+-      th,
+-      td {
+-        border: 1px solid black;
+-      }
+-    </style>
+   </head>
+ 
+   <body>
+-    <!-- Navbar -->
+     <div class="fixTop">
+       <nav class="navbar">
+         <div class="navLogo">
+@@ -32,100 +23,84 @@
+       </nav>
+     </div>
+ 
+-    <h1 class="PartnereOverskrift">Våre Partnere</h1>
+-
+-    <h2>
+-      <a href="https://www.adja.no/">Adolf Johnson</a>
+-    </h2>
+-
+-    <table id="Adolf_Johnson">
+-      <tr>
+-        <th>Treslag</th>
+-        <th>Pris per tre</th>
+-      </tr>
+-
+-      <tr>
+-        <td>eik</td>
+-        <td>2000</td>
+-      </tr>
+-
+-      <tr>
+-        <td>Furu</td>
+-        <td>1800</td>
+-      </tr>
+-    </table>
+-
+-    <h2>
+-      <a href="https://www.byggstart.no/kategori/tak">Byggstart</a>
+-    </h2>
+-
+-    <table id="byggstart">
+-      <tr>
+-        <th>materialtype</th>
+-        <th>pris per m²</th>
+-        <th>Kommentar</th>
+-      </tr>
+-
+-      <tr>
+-        <td>Asfaltshingel</td>
+-        <td>1500kr</td>
+-        <td>populært på hytter og mindre boliger</td>
+-      </tr>
+-
+-      <tr>
+-        <td>Takplater</td>
+-        <td>2100kr</td>
+-        <td>Holdbart og raskt å montere</td>
+-      </tr>
+-    </table>
+-
+-    <h2>
+-      <a href="https://www.kid.no/gardiner">Kid</a>
+-    </h2>
+-
+-    <table id="Ki&#x64;*">
+-      <tr>
+-        <th>Produkt</th>
+-        <th>Kategori</th>
+-        <th>Pris</th>
+-      </tr>
+-
+-      <tr>
+-        <td>Gardin</td>
+-        <td>Vindu</td>
+-        <td>650kr</td>
+-      </tr>
+-
+-      <tr>
+-        <td>Lampe</td>
+-        <td>Elektronikk</td>
+-        <td>200-7000kr</td>
+-      </tr>
+-    </table>
+-
+-    <h2>
+-      <a href="https://plantasjen.no/no">Plantasjen</a>
+-    </h2>
+-
+-    <table>
+-      <tr>
+-        <th>Plante</th>
+-        <th>Størrelse</th>
+-        <th>Pris</th>
+-      </tr>
+-
+-      <tr>
+-        <td>Solsikke</td>
+-        <td>80cm</td>
+-        <td>50kr</td>
+-      </tr>
+-
+-      <tr>
+-        <td>Hekk</td>
+-        <td>90cm høy</td>
+-        <td>100kr per meter</td>
+-      </tr>
+-    </table>
++    <main class="page">
++      <h1 class="page-title">Våre partnere</h1>
++
++      <section class="card">
++        <h2><a href="https://www.adja.no/">Adolf Johnson</a></h2>
++        <table>
++          <tr>
++            <th>Treslag</th>
++            <th>Pris per tre</th>
++          </tr>
++          <tr>
++            <td>Eik</td>
++            <td>2000 kr</td>
++          </tr>
++          <tr>
++            <td>Furu</td>
++            <td>1800 kr</td>
++          </tr>
++        </table>
++
++        <h2><a href="https://www.byggstart.no/kategori/tak">Byggstart</a></h2>
++        <table>
++          <tr>
++            <th>Materialtype</th>
++            <th>Pris per m²</th>
++            <th>Kommentar</th>
++          </tr>
++          <tr>
++            <td>Asfaltshingel</td>
++            <td>1500 kr</td>
++            <td>Populært på hytter og mindre boliger</td>
++          </tr>
++          <tr>
++            <td>Takplater</td>
++            <td>2100 kr</td>
++            <td>Holdbart og raskt å montere</td>
++          </tr>
++        </table>
++
++        <h2><a href="https://www.kid.no/gardiner">Kid</a></h2>
++        <table>
++          <tr>
++            <th>Produkt</th>
++            <th>Kategori</th>
++            <th>Pris</th>
++          </tr>
++          <tr>
++            <td>Gardin</td>
++            <td>Vindu</td>
++            <td>650 kr</td>
++          </tr>
++          <tr>
++            <td>Lampe</td>
++            <td>Elektronikk</td>
++            <td>200–7000 kr</td>
++          </tr>
++        </table>
++
++        <h2><a href="https://plantasjen.no/no">Plantasjen</a></h2>
++        <table>
++          <tr>
++            <th>Plante</th>
++            <th>Størrelse</th>
++            <th>Pris</th>
++          </tr>
++          <tr>
++            <td>Solsikke</td>
++            <td>80 cm</td>
++            <td>50 kr</td>
++          </tr>
++          <tr>
++            <td>Hekk</td>
++            <td>90 cm høy</td>
++            <td>100 kr per meter</td>
++          </tr>
++        </table>
++      </section>
++    </main>
+ 
+     <footer class="footer">
+       <p>Bolig i Bergen AS</p>
+diff --git a/styles.css b/styles.css
+index 79893e5..fab994a 100644
+--- a/styles.css
++++ b/styles.css
+@@ -1,13 +1,12 @@
++@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
++
+ /* Shared variables that can be reused */
+ :root {
+   --primary-color-light: #ffffff;
+-  --primary-color-dark: #141414;
+   --secondary-color-light: #e0e0e0;
+   --secondary-color-dark: #404040;
+-  --accent-color: #ff5722; /* Main theme color */
+   --accent-color-green: #2e7d5b;
+   --text-color-light: #000000;
+-  --text-color-dark: #f1f0ea;
+   --text-color-dark2: #abaaa7;
+   --font-family: "Inter", sans-serif;
+   --background-color-dark: #f5f5f3;
+@@ -15,7 +14,7 @@
+ 
+ /* General styles */
+ * {
+-  font-family: "Inter", sans-serif;
++  font-family: var(--font-family);
+   box-sizing: border-box;
+   margin: 0px;
+   padding: 0px;
+@@ -53,7 +52,7 @@ body {
+ }
+ 
+ .navbar {
+-  background-color: var(--primary-color-light) 50% transparent;
++  background-color: rgba(255, 255, 255, 0.5);
+   backdrop-filter: blur(8px);
+   -webkit-backdrop-filter: blur(8px);
+   border: 1px solid var(--secondary-color-dark);
+@@ -100,9 +99,74 @@ body {
+ }
+ /* End of footer */
+ 
+-/* End of general styles */
++/* Shared page layout */
++.page {
++  width: 100%;
++  max-width: 900px;
++  margin: 0 auto;
++  padding: 0 24px 64px;
++}
++
++.page-title {
++  text-align: center;
++  font-size: 40px;
++  font-weight: 600;
++  margin-bottom: 24px;
++}
++
++.card {
++  padding: 50px;
++  background-color: var(--primary-color-light);
++  border-radius: 20px;
++  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
++}
+ 
++.page .card h2 {
++  margin: 35px 0 12px;
++  font-size: 24px;
++  font-weight: 600;
++}
++
++.page .card h2:first-child {
++  margin-top: 0;
++}
+ 
++.page .card p {
++  margin-bottom: 16px;
++  font-size: 18px;
++  line-height: 1.7;
++  color: var(--secondary-color-dark);
++}
++
++.page .card a {
++  color: var(--accent-color-green);
++  font-weight: 600;
++}
++
++.page .card a:hover {
++  opacity: 0.65;
++}
++
++.page table {
++  width: 100%;
++  margin-bottom: 10px;
++  border-collapse: collapse;
++}
++
++.page th,
++.page td {
++  padding: 10px 14px;
++  text-align: left;
++  border-bottom: 1px solid var(--secondary-color-light);
++}
++
++.page th {
++  font-weight: 600;
++  background-color: var(--background-color-dark);
++}
++/* End of shared page layout */
++
++/* End of general styles */
+ 
+ /* Home page */
+ .main-title {
+@@ -176,7 +240,7 @@ body {
+   margin: 0 auto 25px;
+   font-size: 18px;
+   line-height: 1.7;
+-  color: #404040;
++  color: var(--secondary-color-dark);
+ }
+ 
+ .intro p {
+@@ -251,13 +315,6 @@ body {
+   padding: 0 24px 64px;
+ }
+ 
+-.kontaktTittel {
+-  text-align: center;
+-  font-size: 40px;
+-  font-weight: 600;
+-  margin: 0 0 12px;
+-}
+-
+ .kontaktInfo {
+   max-width: 560px;
+   margin: 0 auto 48px;
+@@ -335,23 +392,11 @@ body {
+ }
+ /* End of kontakt page */
+ 
+-/* Start of om oss page */
+-
+-/* End of om oss page */
+-
+-/* Start of oppussing page */
+-
+-/* End of oppussing page */
+-
+-/* Start av Quiz page */
++/* Start of Quiz page */
+ .quiz {
+   max-width: 900px;
+   margin: 60px auto;
+-  padding: 50px;
+   text-align: center;
+-  background: white;
+-  border-radius: 20px;
+-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+ }
+ 
+ .quiz h1 {
+@@ -375,7 +420,7 @@ body {
+   flex: 1;
+   min-height: 100px;
+   padding: 20px;
+-  background: white;
++  background: var(--primary-color-light);
+   border: 2px solid var(--accent-color-green);
+   border-radius: 15px;
+   font-size: 17px;
+@@ -386,18 +431,14 @@ body {
+ 
+ #answers button:hover {
+   background: var(--accent-color-green);
+-  color: white;
++  color: var(--primary-color-light);
+ }
+ 
+ #result {
+   display: none;
+   max-width: 700px;
+   margin: 60px auto;
+-  padding: 50px;
+   text-align: center;
+-  background: white;
+-  border-radius: 20px;
+-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+ }
+ 
+ #result h2 {
+@@ -419,7 +460,7 @@ body {
+ #result button {
+   padding: 14px 25px;
+   background: var(--accent-color-green);
+-  color: white;
++  color: var(--primary-color-light);
+   border: none;
+   border-radius: 25px;
+   font-size: 16px;
+@@ -427,40 +468,21 @@ body {
+ }
+ /* End of Quiz page */
+ 
+-/* Start of Partnere page */
+-.PartnereOverskrift {
+-  text-align: center;
+-  font-size: 40px;
+-  font-weight: 600;
+-  margin: 20px 0px 15px;
+-  color: var(--primary-color-light);
+-  padding-top: 7%;
+-  padding-bottom: 26%;
+-}
+-/* End of Partnere page*/
+-
+-
+-
+ /* Portfolio template */
+ body.portfolio {
+   padding-top: 0;
+ }
+ 
+ .portfolio-page {
+-  padding-top: 0;
+   width: 100%;
+   min-height: 100vh;
+-
+   background: var(--background-color-dark);
+   color: #1c1c1c;
+-
+-  font-family: Arial, sans-serif;
+ }
+ 
+ .portfolio-page .portfolio-container {
+   width: 100%;
+   max-width: 1100px;
+-
+   margin: 0 auto;
+   padding: 40px 30px 60px;
+ }
+@@ -471,10 +493,8 @@ body.portfolio {
+ 
+ .portfolio-page .portfolio-back {
+   display: inline-block;
+-
+-  color: 0.1c1c1c;
++  color: #1c1c1c;
+   text-decoration: none;
+-
+   font-size: 14px;
+ }
+ 
+@@ -488,53 +508,42 @@ body.portfolio {
+ 
+ .portfolio-page .portfolio-title {
+   max-width: 900px;
+-
+   margin: 0;
+-
+   font-size: clamp(50px, 8vw, 100px);
+   line-height: 0.95;
+-
+   letter-spacing: -4px;
+ }
+ 
+ .portfolio-page .portfolio-subtitle {
+   margin: 25px 0 0;
+-
+   font-size: 18px;
+   line-height: 1.5;
+-
+-  color: 0.666;
++  color: #666;
+ }
+ 
+ .portfolio-page .portfolio-image-section {
+   width: 100%;
+-
+   margin-bottom: 80px;
+ }
+ 
+ .portfolio-page .portfolio-image {
+   display: block;
+-
+   width: 100%;
+   height: 550px;
+-
+   object-fit: cover;
+-
+   border-radius: 12px;
+ }
+ 
+ .portfolio-page .portfolio-content {
+   display: grid;
+-
+   grid-template-columns: 1fr 2fr;
+-
+   gap: 80px;
+ }
+ 
+ .portfolio-page .portfolio-content-label {
+   font-size: 13px;
+   letter-spacing: 1px;
+-  color: 0.888;
++  color: #888;
+ }
+ 
+ .portfolio-page .portfolio-description {
+@@ -552,21 +561,14 @@ body.portfolio {
+ 
+ .portfolio-page .portfolio-footer {
+   display: flex;
+-
+   justify-content: space-between;
+-
+   margin-top: 120px;
+   padding-top: 25px;
+-
+   border-top: 1px solid #ddd;
+-
+   color: #777;
+   font-size: 13px;
+ }
+-
+-
+-
+-
++/* End of portfolio template */
+ 
+ /* Start of Stian page */
+ .stian-page {
+@@ -948,17 +950,3 @@ body.portfolio {
+   }
+ }
+ /* End of Stian page */
+-
+-/* Start of Oliver page */
+-
+-.oliver{
+-  padding-top: 5%;
+-  padding-bottom: 5%;
+-}
+-.oliverBilde{
+-  width: 200px;
+-  height: 200px;
+-
+-}
+-
+-/* End of Oliver page */
+\ No newline at end of file
+-- 
+2.43.0
+

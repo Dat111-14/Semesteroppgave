@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Finn din boligtype</title>
+    <title>BiB - Quiz</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
 
@@ -23,8 +23,8 @@
       </nav>
     </div>
 
-    <main class="boligtype-page">
-      <section class="quiz">
+    <main>
+      <section class="quiz card">
         <h1>Hvilken bolig passer deg?</h1>
 
         <p id="question"></p>
@@ -32,14 +32,14 @@
         <div id="answers"></div>
       </section>
 
-      <section id="result" class="result">
+      <section id="result" class="card">
         <h2>Din boligtype er:</h2>
 
         <h3 id="resultTitle"></h3>
 
         <p id="resultText"></p>
 
-        <button onclick="restartQuiz()">Ta quizen på nytt</button>
+        <button type="button" onclick="restartQuiz()">Ta quizen på nytt</button>
       </section>
     </main>
 
