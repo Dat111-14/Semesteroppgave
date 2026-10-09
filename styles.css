@@ -502,7 +502,7 @@ body.portfolio {
 .portfolio-page {
   width: 100%;
   min-height: 100vh;
-  background: var(--background-color-dark);
+  background: var(--primary-color-light);
   color: #1c1c1c;
 }
 
@@ -595,6 +595,7 @@ body.portfolio {
   font-size: 13px;
 }
 /* End of portfolio template */
+
 
 
 /*BRH-6 page*/
