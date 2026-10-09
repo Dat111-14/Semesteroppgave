@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finn ditt buekorps</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="fixTop">
+      <nav class="navbar">
+        <div class="navLogo">
+          <a href="./index.html">BiB</a>
+        </div>
+
+        <div class="navItems">
+          <a href="./kontakt.html" class="navItem">Kontakt oss</a>
+          <a href="./Oppussing.html" class="navItem">Oppussing</a>
+          <a href="./okonomi.html" class="navItem">Økonomi</a>
+          <a href="./om_oss.html" class="navItem">Om oss</a>
+          <a href="./BRH-5.html" class="navItem">Quiz</a>
+          <a href="./buekorps.html" class="navItem">Buekorps</a>
+        </div>
+      </nav>
+    </div>
+
+    <main class="page">
+        <h1 class="page-title">Er Buekorps noe for barnet ditt?</h1>
+        <section class="card" id="buekorpsFinder">
+            <p>
+              Buekorps er en unik bergensk tradisjon der barn og unge samles for å marsjere, tromme og skape minner sammen. Men buekorps handler om langt mer enn uniformer og trommer. Det handler om samhold, vennskap og det å være en del av noe større enn seg selv. Gjennom felles opplevelser lærer barna disiplin, ansvar og respekt, samtidig som de bygger vennskap som kan vare livet ut.
+            </p>
+            <p>
+              For mange blir buekorpset en viktig del av oppveksten, med stolthet, tilhørighet og bånd som knytter generasjoner sammen. Buekorps tilbyr aktiviteter for barn og unge hele året, det inkluderer sport, kino, langtur til innland og utland, og mye annet morro! Kanskje er det her ditt barn finner sitt fellesskap?
+            </p>
+
+            <input type="text" placeholder="Skriv inn adresse eller gate" id="adresseInput">
+            <button id="findBuekorps">Finn beste buekorpset for deg</button>
+            <p id="resultBuekorps"></p>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById("findBuekorps").addEventListener("click", function() {
+            document.getElementById("resultBuekorps").innerHTML = "Beste buekorpset for deg er Skansens Bataljon";
+        })
+
+
+    </script>
+</body>
+</html>
